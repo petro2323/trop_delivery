@@ -9,3 +9,5 @@ php spark make:controller [ime kontrolera] -> kreira kontroler
 php spark make:model [ime modela] -> kreira model
 
 composer update -> azurira cache
+
+php spark make:migration [ime migracije] -> kreira novu migraciju
