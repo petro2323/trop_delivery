@@ -42,7 +42,7 @@ class CreateTableUsers extends Migration
             ]);
             
             $this->forge->addPrimaryKey('id');
-            $this->forge->addForeignKey('user_type_id', 'user_type', 'id');
+            $this->forge->addForeignKey('user_type_id', 'user_type', 'id', 'CASCADE', 'CASCADE');
             $this->forge->createTable('users');
         }
     }
