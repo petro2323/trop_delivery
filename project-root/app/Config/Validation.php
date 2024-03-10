@@ -27,6 +27,14 @@ class Validation extends BaseConfig
         CreditCardRules::class,
     ];
 
+    public $rules = [
+        'fName' => 'required|regex_match[/^[A-Za-z]+$/]',
+        'lName' => 'required|regex_match[/^[A-Za-z]+$/]',
+        'email' => 'required|valid_email',
+        'username' => 'required|regex_match[/^[a-zA-Z0-9]{5,16}$/]',
+        'password' => 'required|regex_match[/^[a-zA-Z0-9]{7,}$/]'
+    ];
+
     /**
      * Specifies the views that are used to display the
      * errors.
