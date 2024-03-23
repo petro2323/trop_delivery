@@ -61,7 +61,7 @@
 
     </form>
 
-    <p class="text--center">Already a member? <a>Sign in now</a> <svg class="icon">
+    <p class="text--center">Already a member? <a href="<?=base_url('login');?>">Sign in now</a> <svg class="icon">
             <use xlink:href="#icon-arrow-right"></use>
         </svg></p>
 

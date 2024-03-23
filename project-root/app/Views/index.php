@@ -20,19 +20,17 @@
     <ul class="nav-links">
         <div class="profile">
             <li class="services">
-                <img src="photos/icons8-account-32.png" alt="Account" id="profile-icon">
-                <ul class="dropdown">
-                    <li>
-                        <a>Log out</a>
-                    </li>
-                    <li>
-                        <a>Settings</a>
-                    </li>
-                    
-                    <li>
-                        <a>Cart</a>
-                    </li>
-                </ul>
+                    <?php $session = \Config\Services::session(); 
+                    if($session->has('username')) {
+                        echo "<p>";
+                        echo 'Hello ' . $session->get('username');
+                        echo '<br>';
+                        echo '<a href="' . base_url('logout') . '">Logout</a>';
+                        echo "</p>";
+                    } else {
+                        echo '<a href="' . base_url('login') . '">Login</a>';
+                    }
+                    ?>
             </li>
         </div>
     </ul>

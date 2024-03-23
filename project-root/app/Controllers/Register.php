@@ -26,7 +26,12 @@ protected $cipher;
     
     public function index()
     {
-        return view('register');
+        $session = \Config\Services::session();
+        if($session->has('username')) {
+            return redirect()->to(base_url('/'));
+        } else {
+            return view('register');
+        }
     }
 
     public function register()
