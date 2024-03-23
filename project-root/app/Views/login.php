@@ -20,7 +20,7 @@
 
 <div class="grid">
 
-    <form class="form login" id="loginForm">
+    <form action="<?php echo base_url('login') ?>" method="POST" class="form login">
 
         <div class="form__field">
             <label for="login__username"><svg class="icon">

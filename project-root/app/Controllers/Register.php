@@ -5,7 +5,6 @@ use App\Models\Users;
 use App\Config\Encryption;
 
 use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
 
 class Register extends BaseController
 {
