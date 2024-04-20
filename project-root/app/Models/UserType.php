@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Users extends Model
+class UserType extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'user_type';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['first_name', 'last_name', 'email', 'username', 'password', 'user_type_id'];
+    protected $allowedFields    = ['type'];
 
     protected bool $allowEmptyInserts = false;
 

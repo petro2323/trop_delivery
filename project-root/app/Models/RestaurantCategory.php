@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Users extends Model
+class RestaurantCategory extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'restaurant_category';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['first_name', 'last_name', 'email', 'username', 'password', 'user_type_id'];
+    protected $allowedFields    = ['name'];
 
     protected bool $allowEmptyInserts = false;
 
