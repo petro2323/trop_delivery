@@ -20,7 +20,7 @@
 
 <div class="grid">
 
-    <form class="form login" id="loginForm">
+    <form action="<?php echo base_url('login') ?>" method="POST" class="form login">
 
         <div class="form__field">
             <label for="login__username"><svg class="icon">
@@ -42,7 +42,7 @@
 
     </form>
 
-    <p class="text--center">Not a member? <a>Sign up now</a> <svg class="icon">
+    <p class="text--center">Not a member? <a href="<?=base_url('register');?>">Sign up now</a> <svg class="icon">
             <use xlink:href="#icon-arrow-right"></use>
         </svg></p>
 
