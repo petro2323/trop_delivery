@@ -10,6 +10,23 @@
     <link rel="stylesheet" href="<?=base_url('css/main-page.css') ?>">
     <link rel="icon" href="<?=base_url()?>/photos/tropicon.png" type="image/gif">
     <title>Trop Delivery</title>
+    <script>
+                const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar">
