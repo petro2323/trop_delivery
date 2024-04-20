@@ -9,26 +9,18 @@
     <link rel="stylesheet" href="<?=base_url('css/login.css') ?>">
     <link rel="stylesheet" href="<?=base_url('css/main-page.css') ?>">
     <link rel="icon" href="<?=base_url()?>/photos/tropicon.png" type="image/gif">
+    <!-- <script src="<?=base_url('js/sweetalert2.js')?>"></script> -->
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
     <title>Trop Delivery</title>
-    <script>
-                const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-        });
+</head>
+<body>
+<script>
         Toast.fire({
         icon: "success",
         title: "Signed in successfully"
         });
-    </script>
-</head>
-<body>
+</script>
 <nav class="navbar">
     <div class="logo">
         <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
