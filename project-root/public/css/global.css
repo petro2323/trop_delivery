@@ -6,7 +6,7 @@
     --bodyFontFamily: "Open Sans";
     --bodyFontFamilyFallback: sans-serif;
     --bodyFontSize: 0.875rem;
-    --bodyFontWeight: 400;
+    --bodyFontWeight: 500;
     --bodyLineHeight: 1.5;
     --baseColor: #F1E8B8;
     --iconFill: var(--baseColor);
@@ -59,17 +59,17 @@
 }
 
 html {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     font-size: var(--htmlFontSize);
 }
 
 body {
-    background-color: var(--bodyBackgroundColor);
+    background-color: var(--bodyBackgroundColor) !important;
     color: var(--bodyColor);
     font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
     font-size: var(--bodyFontSize);
     font-weight: var(--bodyFontWeight);
-    line-height: var(--bodyLineHeight);
+    /* line-height: var(--bodyLineHeight); */
     margin: 0;
     min-block-size: 100vh;
 }

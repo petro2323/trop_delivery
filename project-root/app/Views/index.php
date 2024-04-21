@@ -9,18 +9,11 @@
     <link rel="stylesheet" href="<?=base_url('css/login.css') ?>">
     <link rel="stylesheet" href="<?=base_url('css/main-page.css') ?>">
     <link rel="icon" href="<?=base_url()?>/photos/tropicon.png" type="image/gif">
-    <!-- <script src="<?=base_url('js/sweetalert2.js')?>"></script> -->
-    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Trop Delivery</title>
 </head>
 <body>
-<script>
-        Toast.fire({
-        icon: "success",
-        title: "Signed in successfully"
-        });
-</script>
 <nav class="navbar">
     <div class="logo">
         <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
@@ -44,6 +37,7 @@
         </div>
     </ul>
 </nav>
+
 
 <div class="landing">
     <div class="main_container">
@@ -69,21 +63,21 @@
         <h1>Top picks by Trope</h1>
     </div>
     <div class="recommended_container">
-        <div class="card">
+        <div class="custom-card">
             <img src="<?=base_url('photos/grill.jpg') ?>" alt="Restaurant">
             <div class="container">
                 <h4>Tropicana Roštilj</h4>
                 <p>BBQ and Steakhouse</p>
             </div>
         </div>
-        <div class="card">
+        <div class="custom-card">
             <img src="<?=base_url('photos/nino-coffee.jpeg') ?>" alt="Restaurant">
             <div class="container">
                 <h4>Coffee at Nino's</h4>
                 <p>Single origin coffee</p>
             </div>
         </div>
-        <div class="card">
+        <div class="custom-card">
             <img src="<?=base_url('photos/pepino-pizza.jpg') ?>" alt="Restaurant">
             <div class="container">
                 <h4>Peppino's Pizza</h4>
