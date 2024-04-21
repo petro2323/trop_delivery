@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import 'sweetalert2/src/sweetalert2.scss';
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-*{
-    box-sizing: border-box;
-}
 
 * {
     margin: 0;
@@ -18,7 +9,8 @@
 }
 
 body {
-    font-family: cursive;
+    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback) !important;
+    height: 100%;
 }
 
 a {
@@ -63,7 +55,7 @@ li {
 
 .logo span a {
     text-decoration: none;
-    color: #F1E8B8;
+    color: #F1E8B8 !important;
 }
 
 .profile {
@@ -135,8 +127,9 @@ li {
 
 .landing h1{
     color: #363b41;
-    font-size: 3rem;
+    font-size: 4rem;
     padding: 1rem;
+    font-weight: 700;
 }
 
 .search{
@@ -167,7 +160,7 @@ li {
     width: 70%;
 }
 
-.card {
+.custom-card {
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -177,7 +170,7 @@ li {
     color: #363b41;
 }
 
-.card:hover {
+.custom-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     background-color: #F1E8B8;
     cursor: pointer;
@@ -195,7 +188,7 @@ li {
    margin: 0.5rem;
 }
 
-.card img {
+.custom-card img {
     width: 10rem;
     border-radius: 5px;
     object-fit: cover;
@@ -219,3 +212,15 @@ li {
 .main_container h2, h4 {
     color: #363b41;
 }
+
+
+@media screen and (max-width: 768px) {
+    .recommended-container{
+      grid-auto-flow: row;
+    }
+
+    .custom-card {
+      width: 100%; /* Make cards full width on smaller screens */
+      margin-bottom: 20px; /* Add some space between stacked cards */
+    }
+  }
