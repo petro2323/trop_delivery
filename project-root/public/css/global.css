@@ -5,8 +5,8 @@
     --bodyColor: var(--baseColor);
     --bodyFontFamily: "Open Sans";
     --bodyFontFamilyFallback: sans-serif;
-    --bodyFontSize: 0.875rem;
-    --bodyFontWeight: 500;
+    --bodyFontSize: 0.9rem;
+    --bodyFontWeight: 400;
     --bodyLineHeight: 1.5;
     --baseColor: #F1E8B8;
     --iconFill: var(--baseColor);

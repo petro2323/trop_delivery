@@ -127,8 +127,9 @@ li {
 
 .landing h1{
     color: #363b41;
-    font-size: 3rem;
+    font-size: 4rem;
     padding: 1rem;
+    font-weight: 700;
 }
 
 .search{
@@ -211,3 +212,15 @@ li {
 .main_container h2, h4 {
     color: #363b41;
 }
+
+
+@media screen and (max-width: 768px) {
+    .recommended-container{
+      grid-auto-flow: row;
+    }
+
+    .custom-card {
+      width: 100%; /* Make cards full width on smaller screens */
+      margin-bottom: 20px; /* Add some space between stacked cards */
+    }
+  }
