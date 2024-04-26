@@ -14,34 +14,36 @@
     <title>Trop Delivery</title>
 </head>
 <body>
+    
 <nav class="tropnav">
     <div class="logo">
         <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
         <span><a>Trop Delivery</a></span>
     </div>
     <ul class="nav-links">
-    <div class="collapse navbar-collapse " data-bs-toggle="dropdown" id="navbar-list-4">
+    <div class="collapse navbar-collapse" id="navbar-list-4">
         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="<?=base_url('/photos/user-icon.png')?>" width="40" height="40" class="rounded-circle">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?=base_url('dashboard')?>">Dashboard</a>
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <?php $session = \Config\Services::session(); 
-                        if($session->has('username')){
-                            echo '<a class="dropdown-item link" href="' . base_url('logout') . '">Logout</a>';
-                        }else{
-                            echo '<a class="dropdown-item link" href="' . base_url('login') . '">Login</a>';
-                        }
-                    ?>
-                </div>
-            </li>   
+            <?php
+            $session = \Config\Services::session();
+            if ($session->has('username')) {
+            echo '<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
+                    </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
+                <a class="dropdown-item" href="#">Edit Profile</a>
+                <a class="dropdown-item" href="' . base_url('logout') . '">Logout</a>
+            </div>
+                </li>';
+        } else {
+            echo '<li class="nav-item">
+                <a class="nav-link" href="' . base_url('login') . '">Login</a>
+                </li>';
+        }
+            ?>
         </ul>
     </div>
-    </ul>
-    
 </nav>
 
 <div class="landing">
