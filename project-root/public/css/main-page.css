@@ -63,38 +63,6 @@ li {
     position: relative;
 }
 
-/* .dropdown {
-    background-color: #d47979;
-    padding: 1em 0;
-    position: absolute;
-    border-radius: 8px;
-    top: 3rem;
-    right: 0.1rem;
-}
-
-.dropdown li + li {
-    margin-top: 10px;
-}
-
-.dropdown li {
-    padding: 0.5em 1em;
-    width: 8em;
-    text-align: center;
-}
-
-.dropdown li:hover {
-    background-color: #d47979;
-}
-
-.dropdown li a{
-    color: #edebe1;
-    text-decoration: none;
-}
-
-.dropdown li a:hover{
-    color: #F1E8B8;
-} */
-
 .landing{
     display: flex;
     justify-content: center;
@@ -141,7 +109,7 @@ li {
     gap: 3rem;
     justify-content: center;
     padding: 4rem 3rem 3rem 4rem;
-    width: 70%;
+    width: 80%;
 }
 
 .custom-card {
