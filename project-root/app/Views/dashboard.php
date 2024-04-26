@@ -29,7 +29,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Dashboard</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="<?=base_url('logout')?>">Log Out</a>
+                    <a class="dropdown-item" href="<?base_url('logout')?>">Log Out</a>
                 </div>
             </li>   
         </ul>
@@ -58,41 +58,6 @@
     </div>
 </div>
 
-<div class="main_restaurants">
-    <div class="recommended">
-        <h1>Top picks by Trope</h1>
 
-    </div>
-    <div class="recommended_container">
-        <div class="custom-card">
-            <img src="<?=base_url('photos/grill.jpg') ?>" alt="Restaurant">
-            <div class="container">
-                <h4>Tropicana Roštilj</h4>
-                <p>BBQ and Steakhouse</p>
-            </div>
-        </div>
-        <div class="custom-card">
-            <img src="<?=base_url('photos/nino-coffee.jpeg') ?>" alt="Restaurant">
-            <div class="container">
-                <h4>Coffee at Nino's</h4>
-                <p>Single origin coffee</p>
-            </div>
-        </div>
-        <div class="custom-card">
-            <img src="<?=base_url('photos/pepino-pizza.jpg') ?>" alt="Restaurant">
-            <div class="container">
-                <h4>Peppino's Pizza</h4>
-                <p>Italian Pizza</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<svg xmlns="http://www.w3.org/2000/svg" class="icons">
-    <symbol id="icon-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-    </symbol>
-</svg>
 </body>
 </html>
