@@ -21,21 +21,6 @@ li {
 }
 
 
-.navbar {
-    height: 7rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #D05353;
-    color: #fff;
-}
-
-.nav-links a {
-    color: #fff;
-}
-
-
 .logo img {
     margin-left: 2rem;
     height: 7rem;
@@ -78,7 +63,7 @@ li {
     position: relative;
 }
 
-.dropdown {
+/* .dropdown {
     background-color: #d47979;
     padding: 1em 0;
     position: absolute;
@@ -108,7 +93,7 @@ li {
 
 .dropdown li a:hover{
     color: #F1E8B8;
-}
+} */
 
 .landing{
     display: flex;

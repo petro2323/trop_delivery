@@ -131,6 +131,41 @@ p {
     font-family: var(--bodyFontFamily);
 }
 
+.tropnav{
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #D05353;
+    color: #fff;
+}
+
+
+
+
+.dropdown-menu{
+    background-color: #d47979 !important;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none !important;
+}
+
+#navbar-list-4{
+    display: flex;
+    justify-content: right;
+}
+
+.bg-custom-1 {
+    background-color: #D05353;
+  }
+  
+  .bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  }
+
 .logo-set {
     margin-bottom: 1rem;
     background-color: #fce69d;
