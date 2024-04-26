@@ -29,15 +29,20 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Dashboard</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="<?=base_url('logout')?>">Log Out</a>
+                    <?php $session = \Config\Services::session(); 
+                        if($session->has('username')){
+                            echo '<a class="dropdown-item" href="' . base_url('logout') . '">Log Out</a>';
+                        }else{
+                            echo '<a class="dropdown-item" href="' . base_url('login') . '">Log In</a>';
+                        }
+                    ?>
                 </div>
             </li>   
         </ul>
-  </div>
+    </div>
     </ul>
     
 </nav>
-
 
 <div class="landing">
     <div class="main_container">
