@@ -152,7 +152,9 @@ p {
     color: #fff;
     text-decoration: none !important;
 }
-
+.nav-links li{
+    cursor: pointer;
+}
 #navbar-list-4{
     display: flex;
     justify-content: right;

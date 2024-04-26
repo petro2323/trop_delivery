@@ -27,13 +27,13 @@
                     <img src="<?=base_url('/photos/user-icon.png')?>" width="40" height="40" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="<?=base_url('dashboard')?>">Dashboard</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
                     <?php $session = \Config\Services::session(); 
                         if($session->has('username')){
-                            echo '<a class="dropdown-item" href="' . base_url('logout') . '">Log Out</a>';
+                            echo '<a class="dropdown-item link" href="' . base_url('logout') . '">Logout</a>';
                         }else{
-                            echo '<a class="dropdown-item" href="' . base_url('login') . '">Log In</a>';
+                            echo '<a class="dropdown-item link" href="' . base_url('login') . '">Login</a>';
                         }
                     ?>
                 </div>
