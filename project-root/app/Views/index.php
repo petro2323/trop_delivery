@@ -18,7 +18,7 @@
 <nav class="tropnav">
     <div class="logo">
         <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
-        <span><a>Trop Delivery</a></span>
+        <span><a href="base_url('index')">Trop Delivery</a></span>
     </div>
     <ul class="nav-links">
     <div class="collapse navbar-collapse" id="navbar-list-4">
@@ -37,9 +37,16 @@
             </div>
                 </li>';
         } else {
-            echo '<li class="nav-item">
-                <a class="nav-link" href="' . base_url('login') . '">Login</a>
-                </li>';
+            echo '<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
+            </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
+        <a class="dropdown-item" href="#">Edit Profile</a>
+        <a class="dropdown-item" href="' . base_url('login') . '">Login</a>
+    </div>
+        </li>';
         }
             ?>
         </ul>

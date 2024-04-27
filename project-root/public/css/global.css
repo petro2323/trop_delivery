@@ -148,6 +148,11 @@ p {
     background-color: #d47979 !important;
 }
 
+.nav-links{
+    display: flex;
+    flex-direction: row;
+}
+
 .nav-links a {
     color: #fff;
     text-decoration: none !important;
@@ -285,4 +290,15 @@ p {
 .menu-table{
     display: flex;
     justify-content: center;
+}
+
+.label-cart {
+    display: flex;
+    justify-self: right;
+    top: 15;
+    right: 10;
+    z-index: 4;
+    cursor: pointer;
+    padding-top: 1.2rem;
+    padding-right: 2rem;
 }
