@@ -77,9 +77,7 @@
                 <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
             </div>
         </div>
-    </div>
 
-    <div class="dashboard-content">
         <div class="dashboard-card">
             <img class="card-image" src="<?=base_url('photos\hakaton-sendvic.jpg')?>" alt="">
             <div class="card-detail">
@@ -88,9 +86,9 @@
                 <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
             </div>
         </div>
-    </div>
 
-    <div class="dashboard-content">
+
+    
         <div class="dashboard-card">
             <img class="card-image" src="<?=base_url('photos\markus-cevapi.jpg')?>" alt="">
             <div class="card-detail">
@@ -99,9 +97,9 @@
                 <p class="card-time"><span class="fas fa-clock"></span>10-20 min</p>
             </div>
         </div>
-    </div>
+   
 
-    <div class="dashboard-content">
+    
         <div class="dashboard-card">
             <img class="card-image" src="<?=base_url('photos\nino-espresso.jpg')?>" alt="">
             <div class="card-detail">
