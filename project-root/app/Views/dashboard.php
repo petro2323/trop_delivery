@@ -70,7 +70,8 @@
             <h4 class="order-price">2e</h4>
         </div>
     </div>
-
+    
+    
     <!-- detalji cijene -->
 
     <hr class="divider">
