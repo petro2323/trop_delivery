@@ -124,10 +124,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0.5rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     background-color: #F1E8B8;
     z-index: 3;
     border-radius: 15px;
+}
+
+.dashboard-order h3{
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
 }
 
 .order-time{
@@ -241,6 +246,10 @@
 
 .checkout:hover{
     background-color: #d47979;
+}
+
+.label-cart{
+    color: #F1E8B8;
 }
 
 #cart{
