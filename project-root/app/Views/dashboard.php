@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <title>Trop Delivery</title>
 </head>
 <body>
@@ -116,6 +115,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
                             <a class="dropdown-item" href="#">Edit Profile</a>
+                            <a class="dropdown-item" href="' . base_url('history') . '">History</a>
                             <a class="dropdown-item" href="' . base_url('login') . '">Login</a>
                         </div>
                     </li>';
@@ -143,12 +143,12 @@
 
     <h3 class="dashboard-title">Preporučujemo Vam</h3>
     <div class="dashboard-menu">
-        <a href="">Omiljeni</a>
-        <a href="">Najbolje prodavani</a>
-        <a href="">Blizu mene</a>
-        <a href="">Promocija</a>
-        <a href="">Najbolje ocijenjeni</a>
-        <a href="">Sve</a>
+        <a class="tablinks" href="">Omiljeni</a>
+        <a class="tablinks" href="">Najbolje prodavani</a>
+        <a class="tablinks" href="">Blizu mene</a>
+        <a class="tablinks" href="">Promocija</a>
+        <a class="tablinks" href="">Najbolje ocijenjeni</a>
+        <a class="tablinks" href="">Sve</a>
     </div>
 
     <div class="dashboard-content">
@@ -232,6 +232,15 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
 </div>
 
 </body>
