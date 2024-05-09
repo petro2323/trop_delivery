@@ -54,7 +54,7 @@
 
 .dashboard-menu{
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     padding: 0.3rem;
     overflow-x: auto;
 }
@@ -72,7 +72,6 @@
 .dashboard-menu a:hover{
     background-color: #D05353;
     color: #F1E8B8;
-    font-weight: bold;
 }
 
 .dashboard-content{

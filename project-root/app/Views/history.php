@@ -18,7 +18,7 @@
 <nav class="tropnav">
     <div class="logo">
         <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
-        <span><a href="base_url('index')">Trop Delivery</a></span>
+        <span><a href="<?=base_url('/')?>">Trop Delivery</a></span>
     </div>
     <ul class="nav-links">
     <div class="collapse navbar-collapse" id="navbar-list-4">
