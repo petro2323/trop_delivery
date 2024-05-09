@@ -8,50 +8,16 @@
     <link rel="stylesheet" href="<?=base_url('css/global.css') ?>">
     <link rel="stylesheet" href="<?=base_url('css/login.css') ?>">
     <link rel="stylesheet" href="<?=base_url('css/main-page.css') ?>">
+    <link rel="stylesheet" href="<?=base_url('css/dashboard.css') ?>">
     <link rel="icon" href="<?=base_url()?>/photos/tropicon.png" type="image/gif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Trop Delivery</title>
 </head>
 <body>
     
-<nav class="tropnav">
-    <div class="logo">
-        <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
-        <span><a href="base_url('index')">Trop Delivery</a></span>
-    </div>
-    <ul class="nav-links">
-    <div class="collapse navbar-collapse" id="navbar-list-4">
-        <ul class="navbar-nav">
-            <?php
-            $session = \Config\Services::session();
-            if ($session->has('username')) {
-            echo '<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-                    </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-                <a class="dropdown-item" href="#">Edit Profile</a>
-                <a class="dropdown-item" href="' . base_url('logout') . '">Logout</a>
-            </div>
-                </li>';
-        } else {
-            echo '<li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-            </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-        <a class="dropdown-item" href="#">Edit Profile</a>
-        <a class="dropdown-item" href="' . base_url('login') . '">Login</a>
-    </div>
-        </li>';
-        }
-            ?>
-        </ul>
-    </div>
-</nav>
+<?php include('header.php') ?>
 
 <div class="landing">
     <div class="main_container">

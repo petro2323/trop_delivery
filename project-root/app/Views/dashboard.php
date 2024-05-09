@@ -13,121 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <title>Trop Delivery</title>
 </head>
 <body>
-    
-<nav class="tropnav">
-    <div class="logo">
-        <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
-        <span><a href="<?=base_url('/')?>">Trop Delivery</a></span>
-    </div>
-    <ul class="nav-links">
 
-        <!-- cart button -->
-
-        <input type="checkbox" id="cart">
-        <label for="cart" class="label-cart"><span class="fas fa-shopping-cart"></span></label>
-
-        <!-- dashboard za narudzbe -->
-    <div class="dashboard-order">
-        <h3>Order Menu</h3>
-        <div class="order-address">
-            <p>Adresa Dostave</p>
-            <h4>Vaka Đurovića bb, Podgorica</h4>
-        </div>
-
-        <div class="order-time">
-            <span class="fas fa-clock"></span> 30 min <span class="fas fa-map-marker-alt">2 km</span>
-        </div>
-
-        <div class="order-wrapper">
-            <div class="order-card">
-                <img src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza" class="order-image">
-                <div class="order-detail">
-                    <p>Trop pizza</p>
-                    <i class="fas fa-times"></i> <input type="text" value="1">
-                </div>
-                <h4 class="order-price">3.99e</h4>
-            </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic" class="order-image">
-            <div class="order-detail">
-                <p>Hakaton Sendvič</p>
-                <i class="fas fa-times"></i> <input type="text" value="1">
-            </div>
-            <h4 class="order-price">6.99e</h4>
-        </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso" class="order-image">
-            <div class="order-detail">
-                <p>Ninoslav Espresso blend</p>
-                <i class="fas fa-times"></i> <input type="text" value="2">
-            </div>
-            <h4 class="order-price">2e</h4>
-        </div>
-    </div>
-
-    <!-- detalji cijene -->
-
-    <hr class="divider">
-    <div class="order-total">
-        <p>Ukupna cijena: <span>420e</span></p>
-        <p>PDV (10%): <span>42e</span></p>
-        <p>Cijena dostave: <span>2e</span></p>
-
-        <div class="order-promo">
-            <input type="text" class="input-promo" placeholder="Unesite vaučer...">
-            <button class="button-promo">Unesi vaučer</button>
-        </div>
-        <hr class="divider">
-        <p>Konačna cijena: <span>462e</span></p>
-    </div>
-    <button class="checkout">
-        Naruči
-    </button>
-
-  </div>
-
-        <div class="collapse navbar-collapse " id="navbar-list-4">
-            <ul class="navbar-nav">
-                <?php
-                $session = \Config\Services::session();
-                if ($session->has('username')) {
-                echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-                            <a class="dropdown-item" href="#">Edit Profile</a>
-                            <a class="dropdown-item" href="' . base_url('logout') . '">Logout</a>
-                        </div>
-                    </li>';
-            } else {
-                echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-                            <a class="dropdown-item" href="#">Edit Profile</a>
-                            <a class="dropdown-item" href="' . base_url('login') . '">Login</a>
-                        </div>
-                    </li>';
-            }
-                ?>
-            </ul>
-    </ul>
-</nav>
-
+<?php include('header.php') ?>
 
 <div class="dashboard">
-
-
 
     <div class="dashboard-banner">
         <img src="<?=base_url('photos/burger.jpg') ?>" alt="burger">
