@@ -39,91 +39,25 @@
         <a href="">Blizu mene</a>
         <a href="">Promocija</a>
         <a href="">Najbolje ocijenjeni</a>
-        <a href="">Sve</a>
+        <a href="<?=base_url('dashboard')?>" <?= current_url(true)->getPath() === '/index.php/dashboard' ? 'class="active"' : '' ?>>Sve</a>
     </div>
 
     <div class="dashboard-content">
-        <div class="dashboard-card">
-            <img class="card-image" src=" <?=base_url('photos/trop-pizza.jpg')?> " alt="trop-pizza">
-            <div class="card-detail">
-                <h4>Trop Pizza <span>4e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic">
-            <div class="card-detail">
-                <h4>Hakaton Sendvič <span>7e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/markus-cevapi.jpg')?>" alt="markus-cevapi">
-            <div class="card-detail">
-                <h4>Markus ćevapi <span>3.80e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>10-20 min</p>
-            </div>
-        </div>
-   
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso">
-            <div class="card-detail">
-                <h4>Espresso Ninoslav blend <span>2e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>5-10 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza">
-            <div class="card-detail">
-                <h4>Trop Pizza <span>4e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic">
-            <div class="card-detail">
-                <h4>Hakaton Sendvič <span>7e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/markus-cevapi.jpg')?>" alt="markus-cevapi">
-            <div class="card-detail">
-                <h4>Markus ćevapi <span>3.80e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>10-20 min</p>
-            </div>
-        </div>
-   
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso">
-            <div class="card-detail">
-                <h4>Espresso Ninoslav blend <span>2e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>5-10 min</p>
-            </div>
+    <?php if(isset($foodRestaurants)): ?>
+    <?php foreach ($foodRestaurants as $foodRestaurant): ?>
+    <div class="dashboard-card">
+        <img class="card-image" src="<?= base_url('photos/nino-espresso.jpg') ?>" alt="<?= $foodRestaurant['food_title'] ?>">
+        <div class="card-detail">
+            <h4><?= $foodRestaurant['food_title'] ?> <span></span></h4>
+            <p><?= $foodRestaurant['restaurant_title'] ?></p>
+            <p><?= $foodRestaurant['location'] ?></p>
+            <p><?= $foodRestaurant['price'] ?> €</p>
+            <p class="card-time"><span class="fas fa-clock">15min</span></p>
         </div>
     </div>
-</div>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    </div>
 
 </body>
 </html>

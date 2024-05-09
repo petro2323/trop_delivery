@@ -271,3 +271,9 @@
 #cart:checked ~ .logo{
     padding-right: 0;
 }
+
+.dashboard-menu a.active {
+    background-color: #D05353;
+    color: #F1E8B8;
+    font-weight: bold;
+}

@@ -3,11 +3,15 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\FoodRestaurant;
 
 class Dashboard extends Controller
 {
-    public function index()
+    public function allFood() 
     {
-        return view('dashboard');
+        $foodRestaurantModel = new FoodRestaurant();
+        $data['foodRestaurants'] = $foodRestaurantModel->getAllFoodRestaurants();
+
+        return view('dashboard', $data);
     }
 }
