@@ -40,9 +40,15 @@ class FoodRestaurant extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getAllFoodRestaurants() {
-        return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price FROM food_restaurant fr
+    public function getFoodRestaurants($filter) {
+        if($filter == 'all') {
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price FROM food_restaurant fr
                                 INNER JOIN food f ON f.id = fr.food_id
                                 INNER JOIN restaurant r ON r.id = fr.restaurant_id')->getResultArray();
+        } else if($filter == 'best_selling') {
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price FROM food_restaurant fr
+                                INNER JOIN food f ON f.id = fr.food_id
+                                INNER JOIN restaurant r ON r.id = fr.restaurant_id WHERE price <= 10 AND price >= 5 OR price > 20')->getResultArray();
+        }
     }
 }

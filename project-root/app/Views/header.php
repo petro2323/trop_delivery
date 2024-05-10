@@ -1,6 +1,6 @@
 <nav class="tropnav">
     <div class="logo">
-        <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
+        <img src="<?=base_url('photos/TropDeliveryLogo.png')?>" alt="Trop Delivery">
         <span><a href="<?=base_url('/')?>">Trop Delivery</a></span>
     </div>
     <ul class="nav-links">

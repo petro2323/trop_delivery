@@ -35,7 +35,7 @@
     <h3 class="dashboard-title">Preporučujemo Vam</h3>
     <div class="dashboard-menu">
         <a href="">Omiljeni</a>
-        <a href="">Najbolje prodavani</a>
+        <a href="<?=base_url('dashboard/best-selling')?>" <?= current_url(true)->getPath() === '/index.php/dashboard/best-selling' ? 'class="active"' : '' ?>>Najbolje prodavani</a>
         <a href="">Blizu mene</a>
         <a href="">Promocija</a>
         <a href="">Najbolje ocijenjeni</a>
