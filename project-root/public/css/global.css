@@ -306,7 +306,7 @@ p {
 /* footer CSS */
 
 .footer{
-    background-color: #fce69d;
+    background-color: #191919;
 
 }
 
@@ -322,6 +322,11 @@ p {
     font-family: 'Pacifico', cursive;
     font-size: 3rem;
     text-decoration: none;
+    color: #fce69d;
+}
+
+.footer-logo:hover{
+   text-decoration: none;
 }
 
 .footer-heading{
