@@ -302,3 +302,32 @@ p {
     padding-top: 1.2rem;
     padding-right: 2rem;
 }
+
+/* footer CSS */
+
+.footer{
+    background-color: #fce69d;
+
+}
+
+.footer-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer-logo{
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.footer-heading{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
