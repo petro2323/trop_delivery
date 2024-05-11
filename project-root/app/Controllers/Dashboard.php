@@ -10,7 +10,7 @@ class Dashboard extends Controller
     public function allFood() 
     {
         $foodRestaurantModel = new FoodRestaurant();
-        $data['foodRestaurants'] = $foodRestaurantModel->getFoodRestaurants('all');
+        $data['foodRestaurants'] = $foodRestaurantModel->getFoodRestaurants('all', false);
         shuffle($data['foodRestaurants']);
 
         return view('dashboard', $data);
@@ -19,7 +19,7 @@ class Dashboard extends Controller
     public function favoriteFood()
     {
         $foodRestaurantModel = new FoodRestaurant();
-        $data['foodRestaurants'] = $foodRestaurantModel->getFoodRestaurants('best_selling');
+        $data['foodRestaurants'] = $foodRestaurantModel->getFoodRestaurants('best_selling', false);
         shuffle($data['foodRestaurants']);
 
         return view('dashboard', $data);
@@ -36,17 +36,8 @@ class Dashboard extends Controller
         $json_data = json_decode($response, true);
 
         $foodRestaurantModel = new FoodRestaurant();
-        $temp_array = $foodRestaurantModel->getFoodRestaurants('all');
-        $data['foodRestaurants'] = [];
-
-        if(isset($temp_array)) {
-            foreach($temp_array as $temp) {
-                if($temp['location'] === $json_data['city']) {
-                    $data['foodRestaurants'][] = $temp;
-                }
-            }
-        }
-
+        $data['foodRestaurants'] = $foodRestaurantModel->getFoodRestaurants(false, $json_data['city']);
+        
         shuffle($data['foodRestaurants']);
 
         return view('dashboard', $data);

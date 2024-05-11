@@ -40,15 +40,21 @@ class FoodRestaurant extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getFoodRestaurants($filter) {
-        if($filter == 'all') {
+    public function getFoodRestaurants($statement, $cityName) {
+        if ($statement == 'all' && $cityName == false) {
             return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time FROM food_restaurant fr
                                 INNER JOIN food f ON f.id = fr.food_id
                                 INNER JOIN restaurant r ON r.id = fr.restaurant_id')->getResultArray();
-        } else if($filter == 'best_selling') {
+        } else if ($statement == 'best_selling' && $cityName == false) {
             return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time FROM food_restaurant fr
                                 INNER JOIN food f ON f.id = fr.food_id
                                 INNER JOIN restaurant r ON r.id = fr.restaurant_id WHERE price <= 10 AND price >= 5 OR price > 20')->getResultArray();
+        } else if ($statement == false) {
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time 
+                            FROM food_restaurant fr
+                            INNER JOIN food f ON f.id = fr.food_id
+                            INNER JOIN restaurant r ON r.id = fr.restaurant_id 
+                            WHERE r.location = "' . $cityName . '"')->getResultArray();
         }
     }
 }
