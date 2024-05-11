@@ -36,7 +36,7 @@
     <div class="dashboard-menu">
         <a href="">Omiljeni</a>
         <a href="<?=base_url('dashboard/best-selling')?>" <?= current_url(true)->getPath() === '/index.php/dashboard/best-selling' ? 'class="active"' : '' ?>>Najbolje prodavani</a>
-        <a href="">Blizu mene</a>
+        <a href="<?=base_url('dashboard/near-me')?>" <?= current_url(true)->getPath() === '/index.php/dashboard/near-me' ? 'class="active"' : '' ?>>Blizu mene</a>
         <a href="">Promocija</a>
         <a href="">Najbolje ocijenjeni</a>
         <a href="<?=base_url('dashboard')?>" <?= current_url(true)->getPath() === '/index.php/dashboard' ? 'class="active"' : '' ?>>Sve</a>
@@ -52,7 +52,7 @@
             <p><?= $foodRestaurant['restaurant_title'] ?></p>
             <p><?= $foodRestaurant['location'] ?></p>
             <p><?= $foodRestaurant['price'] ?> €</p>
-            <p class="card-time"><span class="fas fa-clock">15min</span></p>
+            <p class="card-time"><span class="fas fa-clock"> <?= $foodRestaurant['delivery_time'] ?> min</span></p>
         </div>
     </div>
     <?php endforeach; ?>
