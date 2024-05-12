@@ -42,15 +42,15 @@ class FoodRestaurant extends Model
 
     public function getFoodRestaurants($statement, $cityName) {
         if ($statement == 'all' && $cityName == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time FROM food_restaurant fr
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image FROM food_restaurant fr
                                 INNER JOIN food f ON f.id = fr.food_id
                                 INNER JOIN restaurant r ON r.id = fr.restaurant_id')->getResultArray();
         } else if ($statement == 'best_selling' && $cityName == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time FROM food_restaurant fr
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image FROM food_restaurant fr
                                 INNER JOIN food f ON f.id = fr.food_id
                                 INNER JOIN restaurant r ON r.id = fr.restaurant_id WHERE price <= 10 AND price >= 5 OR price > 20')->getResultArray();
         } else if ($statement == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time 
+            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image 
                             FROM food_restaurant fr
                             INNER JOIN food f ON f.id = fr.food_id
                             INNER JOIN restaurant r ON r.id = fr.restaurant_id 

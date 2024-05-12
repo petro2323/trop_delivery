@@ -46,7 +46,7 @@
     <?php if(isset($foodRestaurants)): ?>
     <?php foreach ($foodRestaurants as $foodRestaurant): ?>
     <div class="dashboard-card">
-        <img class="card-image" src="<?= base_url('photos/nino-espresso.jpg') ?>" alt="<?= $foodRestaurant['food_title'] ?>">
+        <img class="card-image" src="<?= base_url('food/' . $foodRestaurant['food_image']) ?>" alt="<?= $foodRestaurant['food_title'] ?>">
         <div class="card-detail">
             <h4><?= $foodRestaurant['food_title'] ?> <span></span></h4>
             <p><?= $foodRestaurant['restaurant_title'] ?></p>
