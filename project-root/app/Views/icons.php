@@ -13,12 +13,9 @@
             <div id="addressContainer">
         
             </div>
-        <button id="saveAddressBtn" style="display:none;">Save</button>
-        <button id="editAddressBtn" style="display:none;">Edit</button>
-        </div>
-
-        <div class="order-time">
-            <span class="fas fa-clock"></span> 30 min <span class="fas fa-map-marker-alt">2 km</span>
+        <button id="saveAddressBtn">Save</button>
+        <button id="editAddressBtn">Edit</button>
+        <button id="deleteAddressBtn" style="display:none">Delete</button>
         </div>
 
         <div class="order-wrapper">

@@ -1,23 +1,23 @@
 let saveBtn = document.getElementById('saveAddressBtn')
 let editBtn = document.getElementById('editAddressBtn')
+let deleteBtn = document.getElementById('deleteAddressBtn')
 let addressContainer = document.getElementById('addressContainer')
 
 
 function showAddress(address) {
     addressContainer.innerHTML = '<h4>' + address + '</h4>'
-    editBtn.style.display = 'inline-block'
 }
 
 
 function showAddressInput(value = '') {
     addressContainer.innerHTML = '<input type="text" id="addressInput" placeholder="Unesite adresu" value="' + value + '">'
-    saveBtn.style.display = 'inline-block'
 }
 
 
 let savedAddress = getCookie('deliveryAddress')
 if (savedAddress) {
     showAddress(savedAddress)
+    deleteBtn.style.display = 'inline-block'
 } else {
     showAddressInput()
 }
@@ -25,15 +25,25 @@ if (savedAddress) {
 
 saveBtn.addEventListener('click', () => {
     let addressInput = document.getElementById('addressInput').value
-    setCookie('deliveryAddress', addressInput, 365)
-    showAddress(addressInput)
+    if (addressInput) {
+        setCookie('deliveryAddress', addressInput, 365)
+        showAddress(addressInput)
+        deleteBtn.style.display = 'inline-block'
+    }
 })
 
 
 editBtn.addEventListener('click', () => {
     let savedAddress = getCookie('deliveryAddress')
-    showAddressInput(savedAddress)
-    editBtn.style.display = 'none'
+    if (savedAddress) {
+        showAddressInput(savedAddress)
+    }
+})
+
+deleteBtn.addEventListener('click', () => {
+    deleteCookie('deliveryAddress')
+    deleteBtn.style.display = 'none'
+    showAddressInput()
 })
 
 
@@ -57,4 +67,10 @@ function getCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
+}
+
+function deleteCookie(name) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/erase-cookie/" + name, true);
+    xhr.send();
 }
