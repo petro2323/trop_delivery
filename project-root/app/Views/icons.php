@@ -10,7 +10,11 @@
         <h3>Order Menu</h3>
         <div class="order-address">
             <p>Adresa Dostave</p>
-            <h4>Vaka Đurovića bb, Podgorica</h4>
+            <div id="addressContainer">
+        
+            </div>
+        <button id="saveAddressBtn" style="display:none;">Save</button>
+        <button id="editAddressBtn" style="display:none;">Edit</button>
         </div>
 
         <div class="order-time">
@@ -82,3 +86,4 @@
 </ul>
 </div>
 </ul>
+<script src="<?=base_url('js/address.js')?>"></script>

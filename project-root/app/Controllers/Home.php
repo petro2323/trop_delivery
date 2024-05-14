@@ -47,6 +47,7 @@ class Home extends BaseController
     public function logout()
     {
         $session = \Config\Services::session();
+        setcookie('deliveryAddress', '', time() - 3600, '/');
         $session->destroy();
         return redirect()->to(base_url('/'));
     }
