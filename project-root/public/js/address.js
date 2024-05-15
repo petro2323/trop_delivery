@@ -18,6 +18,7 @@ let savedAddress = getCookie('deliveryAddress')
 if (savedAddress) {
     showAddress(savedAddress)
     deleteBtn.style.display = 'inline-block'
+    editBtn.style.display = 'inline-block'
 } else {
     showAddressInput()
 }
@@ -29,20 +30,20 @@ saveBtn.addEventListener('click', () => {
         setCookie('deliveryAddress', addressInput, 365)
         showAddress(addressInput)
         deleteBtn.style.display = 'inline-block'
+        editBtn.style.display = 'inline-block'
     }
 })
 
 
 editBtn.addEventListener('click', () => {
     let savedAddress = getCookie('deliveryAddress')
-    if (savedAddress) {
-        showAddressInput(savedAddress)
-    }
+    showAddressInput(savedAddress)
 })
 
 deleteBtn.addEventListener('click', () => {
     deleteCookie('deliveryAddress')
     deleteBtn.style.display = 'none'
+    editBtn.style.display = 'none'
     showAddressInput()
 })
 
@@ -70,7 +71,7 @@ function getCookie(name) {
 }
 
 function deleteCookie(name) {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open("GET", "/erase-cookie/" + name, true);
     xhr.send();
 }

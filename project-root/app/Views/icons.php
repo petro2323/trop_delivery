@@ -14,7 +14,7 @@
         
             </div>
         <button id="saveAddressBtn">Save</button>
-        <button id="editAddressBtn">Edit</button>
+        <button id="editAddressBtn" style="display:none">Edit</button>
         <button id="deleteAddressBtn" style="display:none">Delete</button>
         </div>
 
@@ -23,28 +23,14 @@
                 <img src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza" class="order-image">
                 <div class="order-detail">
                     <p>Trop pizza</p>
-                    <i class="fas fa-times"></i> <input type="text" value="1">
+                    <div class="input-group">
+                        <button class="btn btn-outline-primary" onclick="decrement()">-</button>
+                        <input type="text" class="form-control text-center number-field" value="1" id="numberField" readonly>
+                        <button class="btn btn-outline-primary" onclick="increment()">+</button>
+                    </div>
                 </div>
                 <h4 class="order-price">3.99e</h4>
             </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic" class="order-image">
-            <div class="order-detail">
-                <p>Hakaton Sendvič</p>
-                <i class="fas fa-times"></i> <input type="text" value="1">
-            </div>
-            <h4 class="order-price">6.99e</h4>
-        </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso" class="order-image">
-            <div class="order-detail">
-                <p>Ninoslav Espresso blend</p>
-                <i class="fas fa-times"></i> <input type="text" value="2">
-            </div>
-            <h4 class="order-price">2e</h4>
-        </div>
     </div>
 
     <!-- detalji cijene -->
@@ -84,3 +70,18 @@
 </div>
 </ul>
 <script src="<?=base_url('js/address.js')?>"></script>
+<script>
+    function increment() {
+      let numberField = document.getElementById("numberField");
+      let currentValue = parseInt(numberField.value);
+      numberField.value = currentValue + 1;
+    }
+
+    function decrement() {
+      let numberField = document.getElementById("numberField");
+      let currentValue = parseInt(numberField.value);
+      if (currentValue > 1) {
+        numberField.value = currentValue - 1;
+      }
+    }
+</script>
