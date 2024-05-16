@@ -48,10 +48,10 @@
     <div class="dashboard-card">
         <img class="card-image" src="<?= base_url('food/' . $foodRestaurant['food_image']) ?>" alt="<?= $foodRestaurant['food_title'] ?>">
         <div class="card-detail">
-            <h4><?= $foodRestaurant['food_title'] ?> <span></span></h4>
+            <h4 class="title"><?= $foodRestaurant['food_title'] ?> <span></span></h4>
             <p><?= $foodRestaurant['restaurant_title'] ?></p>
             <p><?= $foodRestaurant['location'] ?></p>
-            <p><?= $foodRestaurant['price'] ?> €</p>
+            <p class="price"><?= $foodRestaurant['price'] ?> €</p>
             <p class="card-time"><span class="fas fa-clock"> <?= $foodRestaurant['delivery_time'] ?> min</span></p>
         </div>
     </div>

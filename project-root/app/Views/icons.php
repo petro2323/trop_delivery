@@ -18,35 +18,22 @@
         <button id="deleteAddressBtn" style="display:none">Delete</button>
         </div>
 
-        <div class="order-wrapper">
-            <div class="order-card">
-                <img src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza" class="order-image">
-                <div class="order-detail">
-                    <p>Trop pizza</p>
-                    <div class="input-group">
-                        <button class="btn btn-outline-primary" onclick="decrement()">-</button>
-                        <input type="text" class="form-control text-center number-field" value="1" id="numberField" readonly>
-                        <button class="btn btn-outline-primary" onclick="increment()">+</button>
-                    </div>
-                </div>
-                <h4 class="order-price">3.99e</h4>
-            </div>
-    </div>
+        <div class="order-wrapper" id="cart-items"></div>
 
     <!-- detalji cijene -->
 
     <hr class="divider">
     <div class="order-total">
-        <p>Ukupna cijena: <span>420e</span></p>
-        <p>PDV (10%): <span>42e</span></p>
-        <p>Cijena dostave: <span>2e</span></p>
+        <p>Ukupna cijena: <span id="total-price">0 €</span></p>
+        <p>PDV (10%): <span id="pdv">0 €</span></p>
+        <p>Cijena dostave: <span id="delivery-price"></span></p>
 
         <div class="order-promo">
             <input type="text" class="input-promo" placeholder="Unesite vaučer...">
             <button class="button-promo">Unesi vaučer</button>
         </div>
         <hr class="divider">
-        <p>Konačna cijena: <span>462e</span></p>
+        <p>Konačna cijena: <span id="final-price">0 €</span></p>
     </div>
     <button class="checkout">
         Naruči
@@ -70,18 +57,4 @@
 </div>
 </ul>
 <script src="<?=base_url('js/address.js')?>"></script>
-<script>
-    function increment() {
-      let numberField = document.getElementById("numberField");
-      let currentValue = parseInt(numberField.value);
-      numberField.value = currentValue + 1;
-    }
-
-    function decrement() {
-      let numberField = document.getElementById("numberField");
-      let currentValue = parseInt(numberField.value);
-      if (currentValue > 1) {
-        numberField.value = currentValue - 1;
-      }
-    }
-</script>
+<script src="<?=base_url('js/cart.js')?>"></script>
