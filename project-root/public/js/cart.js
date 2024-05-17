@@ -3,7 +3,12 @@ let cart = {}
 function addToCart(title, price, image_url) {
     if (!cart[title]) {
         cart[title] = {amount: 1, price: price, image_url: image_url}
-        renderCart()
+    }
+
+    renderCart()
+
+    if (!document.getElementById('cart').checked) {
+        document.getElementById('cart').checked = true
     }
 }
 
