@@ -12,6 +12,32 @@ function addToCart(title, price, image_url) {
     }
 }
 
+document.getElementById('voucher_button').addEventListener("click", () => {
+    if (Object.keys(cart).length > 0) {
+        const codes = {
+            "trop-delivery-2002": 0.2,
+            "onin-majstor-256": 0.3,
+            "fit-mediteran-06": 0.5,
+            "skendza-car-99": 0.6,
+            "mini-cooper-bean": 0.1
+        }
+    
+        let input = document.getElementById('trop_voucher')
+        let voucherInput = input.value
+    
+        if (codes.hasOwnProperty(voucherInput)) {
+            let discount = codes[voucherInput]
+            let finalPrice = document.getElementById('final-price')
+            let finalPriceBeforeVoucher = parseFloat(finalPrice.innerHTML)
+    
+            finalPrice.innerHTML = `${(finalPriceBeforeVoucher - (finalPriceBeforeVoucher * discount)).toFixed(2)} €`
+
+            document.getElementById('voucher_button').style.display = 'none'
+            input.disabled = true
+        }
+    }
+})
+
 function renderCart() {
     let cartItems = document.getElementById('cart-items')
     let totalPrice = document.getElementById('total-price')

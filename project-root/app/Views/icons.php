@@ -29,8 +29,8 @@
         <p>Cijena dostave: <span id="delivery-price"></span></p>
 
         <div class="order-promo">
-            <input type="text" class="input-promo" placeholder="Unesite vaučer...">
-            <button class="button-promo">Unesi vaučer</button>
+            <input type="text" class="input-promo" placeholder="Unesite vaučer..." id="trop_voucher">
+            <button class="button-promo" id="voucher_button">Unesi vaučer</button>
         </div>
         <hr class="divider">
         <p>Konačna cijena: <span id="final-price">0 €</span></p>
