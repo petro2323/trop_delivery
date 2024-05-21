@@ -16,119 +16,10 @@
     <title>Trop Delivery</title>
 </head>
 <body>
-    
-<nav class="tropnav">
-    <div class="logo">
-        <img src="photos/TropDeliveryLogo.png" alt="Trop Delivery">
-        <span><a href="<?=base_url('/')?>">Trop Delivery</a></span>
-    </div>
-    <ul class="nav-links">
 
-        <!-- cart button -->
-
-        <input type="checkbox" id="cart">
-        <label for="cart" class="label-cart"><span class="fas fa-shopping-cart"></span></label>
-
-        <!-- dashboard za narudzbe -->
-    <div class="dashboard-order">
-        <h3>Order Menu</h3>
-        <div class="order-address">
-            <p>Adresa Dostave</p>
-            <h4>Vaka Đurovića bb, Podgorica</h4>
-        </div>
-
-        <div class="order-time">
-            <span class="fas fa-clock"></span> 30 min <span class="fas fa-map-marker-alt">2 km</span>
-        </div>
-
-        <div class="order-wrapper">
-            <div class="order-card">
-                <img src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza" class="order-image">
-                <div class="order-detail">
-                    <p>Trop pizza</p>
-                    <i class="fas fa-times"></i> <input type="text" value="1">
-                </div>
-                <h4 class="order-price">3.99e</h4>
-            </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic" class="order-image">
-            <div class="order-detail">
-                <p>Hakaton Sendvič</p>
-                <i class="fas fa-times"></i> <input type="text" value="1">
-            </div>
-            <h4 class="order-price">6.99e</h4>
-        </div>
-
-        <div class="order-card">
-            <img src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso" class="order-image">
-            <div class="order-detail">
-                <p>Ninoslav Espresso blend</p>
-                <i class="fas fa-times"></i> <input type="text" value="2">
-            </div>
-            <h4 class="order-price">2e</h4>
-        </div>
-    </div>
-    
-    
-    <!-- detalji cijene -->
-
-    <hr class="divider">
-    <div class="order-total">
-        <p>Ukupna cijena: <span>420e</span></p>
-        <p>PDV (10%): <span>42e</span></p>
-        <p>Cijena dostave: <span>2e</span></p>
-
-        <div class="order-promo">
-            <input type="text" class="input-promo" placeholder="Unesite vaučer...">
-            <button class="button-promo">Unesi vaučer</button>
-        </div>
-        <hr class="divider">
-        <p>Konačna cijena: <span>462e</span></p>
-    </div>
-    <button class="checkout">
-        Naruči
-    </button>
-
-  </div>
-
-        <div class="collapse navbar-collapse " id="navbar-list-4">
-            <ul class="navbar-nav">
-                <?php
-                $session = \Config\Services::session();
-                if ($session->has('username')) {
-                echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-                            <a class="dropdown-item" href="#">Edit Profile</a>
-                            <a class="dropdown-item" href="' . base_url('logout') . '">Logout</a>
-                        </div>
-                    </li>';
-            } else {
-                echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="' . base_url('/photos/user-icon.png') . '" width="40" height="40" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="' . base_url('dashboard') . '">Dashboard</a>
-                            <a class="dropdown-item" href="#">Edit Profile</a>
-                            <a class="dropdown-item" href="' . base_url('history') . '">History</a>
-                            <a class="dropdown-item" href="' . base_url('login') . '">Login</a>
-                        </div>
-                    </li>';
-            }
-                ?>
-            </ul>
-    </ul>
-</nav>
-
+<?php include('header.php') ?>
 
 <div class="dashboard">
-
-
 
     <div class="dashboard-banner">
         <img src="<?=base_url('photos/burger.jpg') ?>" alt="burger">
@@ -143,96 +34,30 @@
 
     <h3 class="dashboard-title">Preporučujemo Vam</h3>
     <div class="dashboard-menu">
-        <a class="tablinks" href="">Omiljeni</a>
-        <a class="tablinks" href="">Najbolje prodavani</a>
-        <a class="tablinks" href="">Blizu mene</a>
-        <a class="tablinks" href="">Promocija</a>
-        <a class="tablinks" href="">Najbolje ocijenjeni</a>
-        <a class="tablinks" href="">Sve</a>
+        <a href="">Omiljeni</a>
+        <a href="<?=base_url('dashboard/best-selling')?>" <?= current_url(true)->getPath() === '/index.php/dashboard/best-selling' ? 'class="active"' : '' ?>>Najbolje prodavani</a>
+        <a href="<?=base_url('dashboard/near-me')?>" <?= current_url(true)->getPath() === '/index.php/dashboard/near-me' ? 'class="active"' : '' ?>>Blizu mene</a>
+        <a href="">Promocija</a>
+        <a href="">Najbolje ocijenjeni</a>
+        <a href="<?=base_url('dashboard')?>" <?= current_url(true)->getPath() === '/index.php/dashboard' ? 'class="active"' : '' ?>>Sve</a>
     </div>
 
     <div class="dashboard-content">
-        <div class="dashboard-card">
-            <img class="card-image" src=" <?=base_url('photos/trop-pizza.jpg')?> " alt="trop-pizza">
-            <div class="card-detail">
-                <h4>Trop Pizza <span>4e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic">
-            <div class="card-detail">
-                <h4>Hakaton Sendvič <span>7e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/markus-cevapi.jpg')?>" alt="markus-cevapi">
-            <div class="card-detail">
-                <h4>Markus ćevapi <span>3.80e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>10-20 min</p>
-            </div>
-        </div>
-   
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso">
-            <div class="card-detail">
-                <h4>Espresso Ninoslav blend <span>2e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>5-10 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/trop-pizza.jpg')?>" alt="trop-pizza">
-            <div class="card-detail">
-                <h4>Trop Pizza <span>4e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/hakaton-sendvic.jpg')?>" alt="hakaton-sendvic">
-            <div class="card-detail">
-                <h4>Hakaton Sendvič <span>7e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>15-30 min</p>
-            </div>
-        </div>
-
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/markus-cevapi.jpg')?>" alt="markus-cevapi">
-            <div class="card-detail">
-                <h4>Markus ćevapi <span>3.80e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>10-20 min</p>
-            </div>
-        </div>
-   
-
-    
-        <div class="dashboard-card">
-            <img class="card-image" src="<?=base_url('photos/nino-espresso.jpg')?>" alt="nino-espresso">
-            <div class="card-detail">
-                <h4>Espresso Ninoslav blend <span>2e</span></h4>
-                <p>Sample text neki ne znam</p>
-                <p class="card-time"><span class="fas fa-clock"></span>5-10 min</p>
-            </div>
+    <?php if(isset($foodRestaurants)): ?>
+    <?php foreach ($foodRestaurants as $foodRestaurant): ?>
+    <div class="dashboard-card">
+        <img class="card-image" src="<?= base_url('food/' . $foodRestaurant['food_image']) ?>" alt="<?= $foodRestaurant['food_title'] ?>">
+        <div class="card-detail">
+            <h4 class="title"><?= $foodRestaurant['food_title'] ?> <span></span></h4>
+            <p><?= $foodRestaurant['restaurant_title'] ?></p>
+            <p><?= $foodRestaurant['location'] ?></p>
+            <p class="price"><?= $foodRestaurant['price'] ?> €</p>
+            <p class="card-time"><span class="fas fa-clock"> <?= $foodRestaurant['delivery_time'] ?> min</span></p>
         </div>
     </div>
-</div>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    </div>
 
 <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="d-flex">

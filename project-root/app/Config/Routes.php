@@ -14,3 +14,7 @@ $routes->post('/login', 'Home::login');
 $routes->get('/logout', 'Home::logout');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/history', 'History::index');
+$routes->get('/dashboard', 'Dashboard::allFood');
+$routes->get('/dashboard/best-selling', 'Dashboard::favoriteFood');
+$routes->get('/dashboard/near-me', 'Dashboard::nearUser');
+$routes->get('/erase-cookie/(:any)', 'Home::erasecookie/$1');

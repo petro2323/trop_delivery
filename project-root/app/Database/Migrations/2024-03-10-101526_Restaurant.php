@@ -25,7 +25,7 @@ class Restaurant extends Migration
                 ],
                 'restaurant_category_id' => [
                     'type' => 'INT',
-                    'unsigned' => true,
+                    'unsigned' => true
                 ]
             ]);
             
