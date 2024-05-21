@@ -336,3 +336,23 @@ p {
     margin-bottom: 30px;
     margin-top: 30px;
 }
+
+#footer{
+    color: #fce69d !important;
+}
+
+#trop-solutions{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.footer-contact a{
+    color: #fce69d;
+    font-weight: bold;
+}
+
+.footer-contact{
+    padding: 0rem 0rem 1rem 1rem;
+}
