@@ -1,4 +1,5 @@
 let cart = {}
+let codes = {}
 let voucherStatus = false
 
 function addToCart(title, price, image_url) {
@@ -61,14 +62,6 @@ function renderCart(voucher = false) {
     }
 
     if (voucher) {
-        const codes = {
-            "trop-delivery-2002": 0.2,
-            "onin-majstor-256": 0.3,
-            "fit-mediteran-06": 0.5,
-            "skendza-car-99": 0.6,
-            "mini-cooper-bean": 0.1
-        }
-        
         let input = document.getElementById('trop_voucher')
         let voucherInput = input.value
     
@@ -151,4 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+})
+
+async function codeData() {
+    try {
+        const response = await fetch('/get-codes')
+        const text = await response.text()
+
+        const jsonStart = text.indexOf('{')
+        const jsonEnd = text.lastIndexOf('}') + 1
+        const cleanText = text.substring(jsonStart, jsonEnd)
+        
+        const data = JSON.parse(cleanText)
+
+        return data
+    } catch (error) {
+        console.error('Error fetching or parsing data:', error)
+    }
+}
+
+codeData().then(data => {
+    codes = data
 })
