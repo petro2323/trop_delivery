@@ -139,6 +139,7 @@
 }
 
 .order-detail input{
+    width: 35px;
     text-align: center;
     border: 2px solid #363b41;
     border-radius: 10px;

@@ -55,6 +55,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="<?= base_url('dashboard') ?>">Dashboard</a>
+                    <a class="dropdown-item" href="<?= base_url('history') ?>">History</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
                     <a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a>
                 </div>
