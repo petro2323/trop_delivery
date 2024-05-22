@@ -11,7 +11,7 @@
             if ($session->has('username')) {
                 include('icons.php');
         } else {
-            echo '<button onclick="window.location.href=\'' . base_url('login') . '\'">Get started</button>';
+            echo '<button id="get-started" class="btn btn-primary btn-lg" onclick="window.location.href=\'' . base_url('login') . '\'">Get started!</button>';
         }
             ?>
         </ul>

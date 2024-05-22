@@ -129,7 +129,6 @@ p {
 
 .text--center {
     text-align: center;
-    font-family: var(--bodyFontFamily);
 }
 
 .tropnav{
@@ -152,6 +151,7 @@ p {
 .nav-links{
     display: flex;
     flex-direction: row;
+    margin: 0rem !important;
 }
 
 .nav-links a {
@@ -207,6 +207,27 @@ p {
     text-align: center;
     padding: 0.5rem 0.5rem;
 }
+
+#get-started{
+    float: right;
+    background-color: #fce69d;
+    color: #D05353;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-weight: 570;
+    border: none;
+    border-radius: 15px;
+    height: 80%;
+    width: 100%;
+    cursor: pointer;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+#get-started:hover{
+    color: #d47979;
+    background-color:#F1E8B8;
+}
+
 #message,
 #dashboard {
     display: flex;
@@ -302,6 +323,7 @@ p {
     cursor: pointer;
     padding-top: 1.2rem;
     padding-right: 2rem;
+    color: #F1E8B8;
 }
 
 /* footer CSS */
@@ -338,6 +360,14 @@ p {
     margin-top: 30px;
 }
 
+.social p-4 pb-0{
+    display: grid !important;
+}
+
+.footer-container-wrapper{
+    background-color: #363b41;
+}
+
 #footer{
     color: #fce69d !important;
 }
@@ -356,10 +386,6 @@ p {
 
 .footer-contact{
     padding: 0rem 0rem 1rem 1rem;
-}
-
-.label-cart{
-    color: #F1E8B8;
 }
 
 #cart{
