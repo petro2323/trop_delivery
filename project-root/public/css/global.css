@@ -433,6 +433,26 @@ p {
     font-size: 3rem;
 }
 
+.order-address{
+    padding: 1rem;
+}
+
+.order-address p{
+    margin: 0;
+}
+
+.order-address h4{
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.address-buttons{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem;
+}
+
 .order-wrapper{
     height: 180px;
     width: 100%;
@@ -468,6 +488,10 @@ p {
     font-weight: 600;
 }
 
+.btn btn-outline-primary{
+    color: #D05353;
+}
+
 .checkout{
     width: 100%;
     height: 40px;
@@ -485,7 +509,7 @@ p {
     background-color: #d47979;
 }
 
-.order-promo{
+.order-promo, #addressInput{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -503,7 +527,11 @@ p {
     border: none;
 }
 
-.button-promo{
+#saveAddressBtn, #editAddressBtn, #deleteAddressBtn{
+    padding: 0rem 0.5rem 0.5rem 0.5rem !important;
+}
+
+.button-promo, #saveAddressBtn, #editAddressBtn, #deleteAddressBtn{
     float: right;
     background-color: #D05353;
     color: #F1E8B8;
