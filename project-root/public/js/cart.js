@@ -1,18 +1,37 @@
-let cart = {}
+let cart = loadCart()
 let codes = {}
 let voucherStatus = false
+
+viewCart()
 
 function addToCart(title, price, image_url) {
     if (!cart[title]) {
         cart[title] = {amount: 1, price: price, image_url: image_url}
     }
 
+    saveCart()
     viewCart()
 
     if (!document.getElementById('cart').checked) {
         document.getElementById('cart').checked = true
     }
 }
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart))
+}
+
+function loadCart() {
+    const savedCart = localStorage.getItem('cart')
+    if (savedCart) {
+        return JSON.parse(savedCart)
+    }
+    return {}
+}
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.clear()
+})
 
 function viewCart() {
     if (voucherStatus) {
@@ -23,10 +42,7 @@ function viewCart() {
 }
 
 document.getElementById('voucher_button').addEventListener("click", () => {
-    if (Object.keys(cart).length > 0) {
-        voucherStatus = true
-    }
-    
+    voucherStatus = true
     viewCart()
 })
 
@@ -114,6 +130,7 @@ function increment(event, title) {
     event.stopPropagation()
     if (cart[title]) {
         cart[title].amount += 1
+        saveCart()
         viewCart()
     }
 }
@@ -125,6 +142,7 @@ function decrement(event, title) {
         if (cart[title].amount < 1) {
             delete cart[title]
         }
+        saveCart()
         viewCart()
     }
 }
