@@ -56,5 +56,5 @@
 </ul>
 </div>
 </ul>
-<script src="<?=base_url('js/address.js')?>"></script>
+<script type="module" src="<?=base_url('js/address.js')?>"></script>
 <script src="<?=base_url('js/cart.js')?>"></script>
