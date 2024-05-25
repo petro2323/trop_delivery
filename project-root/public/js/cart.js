@@ -1,3 +1,5 @@
+(() => { 
+
 let cart = loadCart()
 let codes = {}
 let voucherStatus = false
@@ -41,9 +43,23 @@ function viewCart() {
     }
 }
 
-document.getElementById('voucher_button').addEventListener("click", () => {
-    voucherStatus = true
-    viewCart()
+document.getElementById('voucher_button').addEventListener("click", async () => {
+    try {
+        const response = await fetch('/get-codes')
+        const text = await response.text()
+
+        const jsonStart = text.indexOf('{')
+        const jsonEnd = text.lastIndexOf('}') + 1
+        const cleanText = text.substring(jsonStart, jsonEnd)
+        
+        const data = JSON.parse(cleanText)
+
+        codes = data
+        voucherStatus = true
+        viewCart()
+    } catch (error) {
+        console.error('Error fetching data:', error)
+    }
 })
 
 function renderCart(voucher = false) {
@@ -67,14 +83,21 @@ function renderCart(voucher = false) {
         <div class="order-detail">
             <p>${title}</p>
             <div class="input-group">
-                <button class="btn btn-outline-primary" onclick="decrement(event, '${title}')">-</button>
+                <button class="btn btn-outline-primary decrement-btn">-</button>
                 <input type="text" class="form-control text-center number-field" value="${item.amount}" readonly>
-                <button class="btn btn-outline-primary" onclick="increment(event, '${title}')">+</button>
+                <button class="btn btn-outline-primary increment-btn">+</button>
             </div>
         </div>
         <h4 class="order-price">${(item.amount * item.price).toFixed(2)} €</h4>
         `
         cartItems.appendChild(itemDiv)
+
+        itemDiv.querySelector('.decrement-btn').addEventListener('click', (event) => {
+            decrement(event, title)
+        })
+        itemDiv.querySelector('.increment-btn').addEventListener('click', (event) => {
+            increment(event, title)
+        })
     }
 
     if (voucher) {
@@ -164,23 +187,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-async function codeData() {
-    try {
-        const response = await fetch('/get-codes')
-        const text = await response.text()
-
-        const jsonStart = text.indexOf('{')
-        const jsonEnd = text.lastIndexOf('}') + 1
-        const cleanText = text.substring(jsonStart, jsonEnd)
-        
-        const data = JSON.parse(cleanText)
-
-        return data
-    } catch (error) {
-        console.error('Error fetching or parsing data:', error)
-    }
-}
-
-codeData().then(data => {
-    codes = data
-})
+})()
