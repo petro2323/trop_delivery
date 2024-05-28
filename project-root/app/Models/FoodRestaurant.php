@@ -41,20 +41,18 @@ class FoodRestaurant extends Model
     protected $afterDelete    = [];
 
     public function getFoodRestaurants($statement, $cityName) {
+        $sql = 'SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image FROM food_restaurant fr
+        INNER JOIN food f ON f.id = fr.food_id
+        INNER JOIN restaurant r ON r.id = fr.restaurant_id';
+        
         if ($statement == 'all' && $cityName == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image FROM food_restaurant fr
-                                INNER JOIN food f ON f.id = fr.food_id
-                                INNER JOIN restaurant r ON r.id = fr.restaurant_id')->getResultArray();
+            return $this->db->query($sql)->getResultArray();
         } else if ($statement == 'best_selling' && $cityName == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image FROM food_restaurant fr
-                                INNER JOIN food f ON f.id = fr.food_id
-                                INNER JOIN restaurant r ON r.id = fr.restaurant_id WHERE price <= 10 AND price >= 5 OR price > 20')->getResultArray();
+            $best_selling_sql = $sql . ' WHERE (price <= ? AND price >= ?) OR price > ?';
+            return $this->db->query($best_selling_sql, [10,5,20])->getResultArray();
         } else if ($statement == false) {
-            return $this->db->query('SELECT f.food_title, r.restaurant_title, r.location, fr.price, r.delivery_time, fr.food_image 
-                            FROM food_restaurant fr
-                            INNER JOIN food f ON f.id = fr.food_id
-                            INNER JOIN restaurant r ON r.id = fr.restaurant_id 
-                            WHERE r.location = "' . $cityName . '"')->getResultArray();
+            $near_user_sql = $sql . ' WHERE r.location = ?';
+            return $this->db->query($near_user_sql, [$cityName])->getResultArray();
         }
     }
 }
