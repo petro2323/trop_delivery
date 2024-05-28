@@ -31,6 +31,11 @@
         <div class="order-promo">
             <input type="text" class="input-promo" placeholder="Unesite vaučer..." id="trop_voucher">
             <button class="button-promo" id="voucher_button">Unesi vaučer</button>
+
+            <div class="spinner-border" role="status" style="display:none">
+            <span class="visually-hidden">Loading...</span>
+            </div>
+            
         </div>
         <hr class="divider">
         <p>Konačna cijena: <span id="final-price">0 €</span></p>

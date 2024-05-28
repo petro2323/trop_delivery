@@ -44,6 +44,10 @@ function viewCart() {
 }
 
 document.getElementById('voucher_button').addEventListener("click", async () => {
+    const loadingIcon = document.querySelector('.spinner-border')
+    loadingIcon.style.display = 'block'
+    document.getElementById('voucher_button').style.display = 'none'
+
     try {
         const response = await fetch('/get-codes')
         const text = await response.text()
@@ -59,6 +63,8 @@ document.getElementById('voucher_button').addEventListener("click", async () => 
         viewCart()
     } catch (error) {
         console.error('Error fetching data:', error)
+    } finally {
+        loadingIcon.style.display = 'none'
     }
 })
 
@@ -124,11 +130,10 @@ function renderCart(voucher = false) {
                 delivery.innerHTML = ''
             }
             finalPrice.innerHTML = `${sum.toFixed(2)} €`
-
-            document.getElementById('voucher_button').style.display = 'none'
             input.disabled = true
         } else {
             voucherStatus = false
+            document.getElementById('voucher_button').style.display = 'block'
         }
     } else {
         let pdvPrice = price * 0.10
