@@ -8,10 +8,16 @@ use App\Controllers\BaseController;
 class Home extends BaseController
 {
     protected $usersModel;
+    protected $key;
+    protected $iv;
+    protected $cipher;
 
     public function __construct()
     {
         $this->usersModel = new Users();
+        $this->key = \Config\Encryption::$key;
+        $this->iv = \Config\Encryption::$iv;
+        $this->cipher = \Config\Encryption::$cipher;
     }
 
     public function index()
@@ -31,12 +37,13 @@ class Home extends BaseController
             'password' => $this->request->getPost('password')
         ];
 
-        $user = $this->usersModel->where('username', $data['username'])->first();
+        $user = $this->usersModel->where('username', openssl_encrypt($data['username'], $this->cipher, $this->key, 0, $this->iv))->first();
 
         if($user != null && password_verify($data['password'], $user['password'])) {
             
             $session = \Config\Services::session();
             $session->set('username', $user['username']);
+            $session->set('user_id', $user['id']);
             
             return redirect()->to(base_url('/'));
         } else {
