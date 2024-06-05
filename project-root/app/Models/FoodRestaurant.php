@@ -55,4 +55,12 @@ class FoodRestaurant extends Model
             return $this->db->query($near_user_sql, [$cityName])->getResultArray();
         }
     }
+
+    public function searchFood($food) {
+        $sql = 'SELECT f.food_title, r.restaurant_title, fr.price, fr.food_image FROM food_restaurant fr
+        INNER JOIN food f ON f.id = fr.food_id
+        INNER JOIN restaurant r ON r.id = fr.restaurant_id WHERE f.food_title LIKE ?';
+
+        return $this->db->query($sql, ["%$food%"])->getResultArray();
+    }
 }
