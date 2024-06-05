@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use App\Models\Users;
-use App\Config\Encryption;
 
 use App\Controllers\BaseController;
 
@@ -48,8 +47,8 @@ protected $cipher;
                 'first_name' => openssl_encrypt($this->request->getPost('fName'), $this->cipher, $this->key, 0, $this->iv),
                 'last_name' => openssl_encrypt($this->request->getPost('lName'), $this->cipher, $this->key, 0, $this->iv),
                 'email' => openssl_encrypt($this->request->getPost('email'), $this->cipher, $this->key, 0, $this->iv),
-                'username' => $this->request->getPost('username'),
-                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT), 
+                'username' => openssl_encrypt($this->request->getPost('username'), $this->cipher, $this->key, 0, $this->iv),
+                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                 'user_type_id' => 3
             ];
 

@@ -42,4 +42,24 @@ class Dashboard extends Controller
 
         return view('dashboard', $data);
     }
+
+    public function getCodes()
+    {
+        
+        if (!isset($_SERVER['HTTP_REFERER'])) {
+            header('HTTP/1.1 403 Forbidden');
+            echo 'Access denied';
+            exit;
+        }
+
+        \Kint::$enabled_mode = false;
+        
+        $ch = curl_init('https://mocki.io/v1/5307c1f4-8eb9-4ba4-b255-9865ad71fbd1');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        return $response;
+    }
 }

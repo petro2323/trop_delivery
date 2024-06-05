@@ -17,3 +17,5 @@ $routes->get('/dashboard', 'Dashboard::allFood');
 $routes->get('/dashboard/best-selling', 'Dashboard::favoriteFood');
 $routes->get('/dashboard/near-me', 'Dashboard::nearUser');
 $routes->get('/erase-cookie/(:any)', 'Home::erasecookie/$1');
+$routes->get('/get-codes', 'Dashboard::getCodes');
+$routes->get('/search-food', 'Main::search_data');

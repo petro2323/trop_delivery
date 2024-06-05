@@ -27,6 +27,21 @@
 
         <!-- detalji cijene -->
 
+    <hr class="divider">
+    <div class="order-total">
+        <p>Ukupna cijena: <span id="total-price">0 €</span></p>
+        <p>PDV (10%): <span id="pdv">0 €</span></p>
+        <p>Cijena dostave: <span id="delivery-price"></span></p>
+
+        <div class="order-promo">
+            <input type="text" class="input-promo" placeholder="Unesite vaučer..." id="trop_voucher">
+            <button class="button-promo" id="voucher_button">Unesi vaučer</button>
+
+            <div class="spinner-border" role="status" style="display:none">
+            <span class="visually-hidden">Loading...</span>
+            </div>
+            
+        </div>
         <hr class="divider">
         <div class="order-total">
             <p>Ukupna cijena: <span id="total-price">0 €</span></p>
@@ -43,6 +58,21 @@
         <button class="checkout">
             Naruči
         </button>
+        <div class="order-promo">
+            <input type="text" class="input-promo" placeholder="Unesite vaučer..." id="trop_voucher">
+            <button class="button-promo" id="voucher_button">Unesi vaučer</button>
+
+            <div class="spinner-border" role="status" style="display:none">
+            <span class="visually-hidden">Loading...</span>
+            </div>
+            
+        </div>
+        <hr class="divider">
+        <p>Konačna cijena: <span id="final-price">0 €</span></p>
+    </div>
+    <button class="checkout">
+        Naruči
+    </button>
 
     </div>
 
@@ -57,11 +87,11 @@
                     <a class="dropdown-item" href="<?= base_url('dashboard') ?>">Dashboard</a>
                     <a class="dropdown-item" href="<?= base_url('history') ?>">History</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a>
+                    <a class="dropdown-item" href="<?= base_url('logout') ?>" id="logoutBtn">Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 </ul>
-<script src="<?= base_url('js/address.js') ?>"></script>
+<script type="module" src="<?= base_url('js/address.js') ?>"></script>
 <script src="<?= base_url('js/cart.js') ?>"></script>
