@@ -27,7 +27,7 @@ class Main extends BaseController
 
         if (!empty($data)) {
             foreach ($data as $row) {
-                echo "<tr>";
+                echo "<tr class=\"dashboard-card\">";
                 echo "<td><img class=\"card-image\" src=\"" . base_url('food/' . $row['food_image']) . "\" alt=\"" . $row['food_title'] . "\"></td>";
                 echo "<td>" . $row['food_title'] . "</td>";
                 echo "<td>" . $row['restaurant_title'] . "</td>";
