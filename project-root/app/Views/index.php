@@ -41,15 +41,17 @@
                     </div>
                 </form>
             </div>
+            
             <table id="search_result">
-
+               
             </table>
+
         </div>
     </div>
 
     <div class="main_restaurants">
         <div class="recommended">
-            <h1>Top picks by Trope</h1>
+            <h1>Brought to you by our sponsors</h1>
 
         </div>
         <div class="recommended_container">

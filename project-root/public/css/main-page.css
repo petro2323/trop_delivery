@@ -117,7 +117,6 @@ li {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 15px;
-    width: fit-content;
     background-color: #fce69d;
     color: #363b41;
 }
@@ -130,7 +129,7 @@ li {
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     align-content: center;
     justify-content: center;
     padding: 2px 16px;
@@ -138,6 +137,10 @@ li {
 
 .container p, h4{
    margin: 0.5rem;
+}
+
+#container-big p,h4{
+    font-size: 2rem;
 }
 
 .custom-card img {
@@ -165,14 +168,18 @@ li {
     color: #363b41;
 }
 
+#search-result-card{
+    width: 50rem;
+}
 
 @media screen and (max-width: 768px) {
     .recommended-container{
       grid-auto-flow: row;
     }
 
+    #search-result-card,
     .custom-card {
-      width: 100%; /* Make cards full width on smaller screens */
-      margin-bottom: 20px; /* Add some space between stacked cards */
+      width: 100%; /* Na manjim ekranima smanjuje sirinu */
+      margin-bottom: 20px; /* Dodaje malo prostora izmedju naslozenih kartica */
     }
   }

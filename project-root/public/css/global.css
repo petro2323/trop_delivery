@@ -542,3 +542,16 @@ p {
     width: 100%;
     cursor: pointer;
 }
+
+.search-result-card{
+    background-color: #F1E8B8;
+    box-shadow: rgba(0,0,0,0.1) 0px 1px 4px;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.search-result-card tr{
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}

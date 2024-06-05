@@ -27,11 +27,16 @@ class Main extends BaseController
 
         if (!empty($data)) {
             foreach ($data as $row) {
-                echo "<tr class=\"dashboard-card\">";
-                echo "<td><img class=\"card-image\" src=\"" . base_url('food/' . $row['food_image']) . "\" alt=\"" . $row['food_title'] . "\"></td>";
-                echo "<td>" . $row['food_title'] . "</td>";
-                echo "<td>" . $row['restaurant_title'] . "</td>";
-                echo "<td>" . $row['price'] . " €</td>";
+                echo "<tr>";
+                echo "<td>";
+                echo "<div class=\"custom-card\" id=\"search-result-card\">";
+                echo "<img src=\"" . base_url('food/' . $row['food_image']) . "\" alt=\"" . $row['food_title'] . "\">";
+                echo "<div class=\"container\" id=\"container-big\">";
+                echo "<h4>" . $row['food_title'] . "</h4>";
+                echo "<p>" . $row['restaurant_title'] . "</p>";
+                echo "<p>" . $row['price'] . " €</p>";
+                echo "</div>";
+                echo "</div>";
                 echo "</tr>";
             }
         }
