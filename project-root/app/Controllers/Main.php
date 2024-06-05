@@ -36,7 +36,7 @@ class Main extends BaseController
                 echo "<p>" . $row['restaurant_title'] . "</p>";
                 echo "<p>" . $row['price'] . " €</p>";
                 echo "</div>";
-                echo "</div>";
+                echo "</td>";
                 echo "</tr>";
             }
         }

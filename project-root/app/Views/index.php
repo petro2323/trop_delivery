@@ -100,15 +100,15 @@
 
         let query = $("#search_bar").val()
 
-        if (query.trim() !== "") {
+        if (query.trim()) {
             let request = {
                 url: '<?php echo base_url('search-food') ?>',
                 type: 'GET',
                 data: {query: query},
-                success: function(result) {
+                success: (result) => {
                     $("#search_result").html(result)
                 },
-                error: function(error) {
+                error: (error) => {
                     $("#search_result").html(error)
                 }
             }
