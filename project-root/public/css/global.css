@@ -365,7 +365,8 @@ p {
 }
 
 .footer-container-wrapper{
-    background-color: #363b41;
+    /* iz nekog razloga radi ako dodam prazan  */
+    /* background-color: #363b41; */
 }
 
 #footer{
