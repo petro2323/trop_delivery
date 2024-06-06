@@ -18,6 +18,7 @@ function addToCart(title, price, image_url) {
         document.getElementById('cart').checked = true
     }
 }
+window.addToCart = addToCart
 
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -182,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             let title = card.querySelector('.title').innerText.trim()
             let price = card.querySelector('.price').innerText.trim()
-            let image = card.querySelector('.card-image').src;
+            let image = card.querySelector('.card-image').src
             
             price = parseFloat(price.replace('€', '').trim())
 

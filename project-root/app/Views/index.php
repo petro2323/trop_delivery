@@ -98,15 +98,26 @@
     $("#search_bar").on("input", (e) => {
         e.preventDefault()
 
-        let query = $("#search_bar").val()
+        let query = $("#search_bar").val().trim()
 
-        if (query.trim()) {
+        if (query) {
             let request = {
                 url: '<?php echo base_url('search-food') ?>',
                 type: 'GET',
                 data: {query: query},
                 success: (result) => {
                     $("#search_result").html(result)
+
+                    $('#search_result').on('click', '.custom-card', function() {
+                        let card = $(this)
+                        let title = card.find('.title').text().trim()
+                        let price = card.find('.price').text().trim()
+                        let image = card.find('.card-image').attr('src')
+
+                        price = parseFloat(price.replace('€', '').trim())
+
+                        addToCart(title, price, image)
+                    })
                 },
                 error: (error) => {
                     $("#search_result").html(error)
