@@ -10,6 +10,7 @@
 body {
     font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback) !important;
     height: 100%;
+    width: 100%;
 }
 
 a {

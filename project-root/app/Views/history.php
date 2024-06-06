@@ -41,57 +41,54 @@
         </div>
     </div>
 
-    <div class="landing" id="history-landing">
-
-        <div class="main_container">
-
+    <div class="history-landing">
         <h1 id="history-title">Pregled istorije</h1>
 
-            <div class="history-table-wrapper" id="rounded-order-history">
-                <table class="table" id="table">
-                    <thead>
-                        <tr>
-                            <th scope="col"># Tracking number</th>
-                            <th scope="col">Ime</th>
-                            <th scope="col">Prezime</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Naručene stavke</th>
-                            <th scope="col">Status porudžbine</th>
-                            <th scope="col">Ukupan iznos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nebojša</td>
-                            <td>Nedić</td>
-                            <td>nnedic98</td>
-                            <td></td>
-                            <td>U tranzitu</td>
-                            <td>8.59€</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Haris</td>
-                            <td>Adrović</td>
-                            <td>hakaizdzungle</td>
-                            <td></td>
-                            <td>Dostavljeno</td>
-                            <td>14.60€</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Miloš</td>
-                            <td>Sekulić</td>
-                            <td>selesekac87</td>
-                            <td></td>
-                            <td>Otkazano</td>
-                            <td>8.65€</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="history-table-wrapper">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th scope="col"># Tracking number</th>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Prezime</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Naručene stavke</th>
+                        <th scope="col">Status porudžbine</th>
+                        <th scope="col">Ukupan iznos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Nebojša</td>
+                        <td>Nedić</td>
+                        <td>nnedic98</td>
+                        <td></td>
+                        <td>U tranzitu</td>
+                        <td>8.59€</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Haris</td>
+                        <td>Adrović</td>
+                        <td>hakaizdzungle</td>
+                        <td></td>
+                        <td>Dostavljeno</td>
+                        <td>14.60€</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Miloš</td>
+                        <td>Sekulić</td>
+                        <td>selesekac87</td>
+                        <td></td>
+                        <td>Otkazano</td>
+                        <td>8.65€</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 
     <?php include ("footer.php") ?>

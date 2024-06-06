@@ -9,17 +9,13 @@
     font-weight: 500;
 }
 
-#rounded-order-history{
-    width: 90rem;
-}
-
 .history-table-wrapper{
-    display: flex;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 15px;
     background-color: #f9f9f9;
     color: #363b41;
+    width: 100%;
 }
 
 .history-banner{
@@ -42,6 +38,28 @@
     background-color: #fce69d;
 }
 
-#history-landing{
-    padding-top: 0%;
+.history-landing{
+    display: flex;
+    justify-content: center !important;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fce69d;
+    padding: 3rem 3rem 3rem 3rem;
+}
+
+.history-landing h1{
+    color: #363b41;
+    font-size: 4rem;
+    padding: 1rem;
+    font-weight: 700;
+    padding-left: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    #rounded-order-history{
+        width: 100%;
+        margin: 3rem 3rem 3rem 3rem;
+    }
+  
 }
