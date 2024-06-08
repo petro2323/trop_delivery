@@ -173,7 +173,7 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-    .recommended-container{
+    .recommended_container{
       grid-auto-flow: row;
     }
 
@@ -182,4 +182,4 @@ li {
       width: 100%; /* Na manjim ekranima smanjuje sirinu */
       margin-bottom: 20px; /* Dodaje malo prostora izmedju naslozenih kartica */
     }
-  }
+}
