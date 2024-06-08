@@ -73,14 +73,20 @@ class Dashboard extends Controller
 
         if ($json) {
             $address = $json->address;
-            $images = $json->images;
+            $items = (array) $json->items;
 
-            foreach($images as $image) {
-                $food = $food_restaurant->getFoodId($image);
+            foreach($items as $title => $item) {
+                $food = $food_restaurant->getFoodId($item->image_title);
                 $data = [
                     'user_id' => $session->get('user_id'),
                     'food_id' => $food['id'],
-                    'delivery_address' => $address
+                    'delivery_address' => $address,
+                    'quantity' => $item->amount,
+                    'food_price' => $item->price,
+                    'pdv_price' => $item->pdv_price,
+                    'delivery_price' => $item->delivery_price,
+                    'final_price' => $item->final_price,
+                    'order_date' => date("Y-m-d H:i:s")
                 ];
                 $userFood->insert($data);
             }

@@ -197,20 +197,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('pay-food').addEventListener('click', () => {
     let address = getCookie('deliveryAddress')
-    let images = []
+    let items = {}
+    let input = document.getElementById('trop_voucher')
+    let voucherInput = input.value
 
-    let food = document.querySelectorAll('.order-card')
-
-    food.forEach(item => {
-        let img = item.querySelector('img')
-        let urlSource = img.src
-        let request = urlSource.substring(urlSource.lastIndexOf('/') + 1)
-        images.push(request)
+    Object.keys(cart).forEach(title => {
+        let item = cart[title]
+        
+        items[title] = {
+            amount: item.amount,
+            price: voucherStatus ? ((item.price * item.amount) - (item.price * item.amount * codes[voucherInput])) : (item.price * item.amount),
+            image_title: item.image_url.substring(item.image_url.lastIndexOf('/') + 1),
+            pdv_price: parseFloat(document.getElementById('pdv').innerText.replace('€', '').trim()),
+            delivery_price: parseFloat(document.getElementById('delivery-price').innerText.replace('€', '').trim()),
+            final_price: parseFloat(document.getElementById('final-price').innerText.replace('€', '').trim())
+        }
     })
 
     let data = {
         address: address,
-        images: images
+        items: items
     }
 
     function validateData(data) {
@@ -218,7 +224,7 @@ document.getElementById('pay-food').addEventListener('click', () => {
             return "Address is missing! Order failed."
         }
 
-        if (!data.images || data.images.length === 0) {
+        if (!data.items || Object.keys(items).length === 0) {
             return "No food selected! Order failed."
         }
 
