@@ -48,7 +48,7 @@
         <button class="checkout" id="pay-food">
             Naruči
         </button>
-        <span id="order-success"></span>
+        <span id="order-message"></span>
         
     </div>
     </div>

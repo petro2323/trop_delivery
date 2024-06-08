@@ -213,6 +213,25 @@ document.getElementById('pay-food').addEventListener('click', () => {
         images: images
     }
 
+    function validateData(data) {
+        if (!data.address) {
+            return "Address is missing! Order failed."
+        }
+
+        if (!data.images || data.images.length === 0) {
+            return "No food selected! Order failed."
+        }
+
+        return null
+    }
+
+    let validation = validateData(data)
+
+    if (validation) {
+        document.getElementById('order-message').innerHTML = validation
+        return
+    }
+
     let xhr = new XMLHttpRequest()
     xhr.open("POST", "/checkout", true)
 
@@ -220,7 +239,7 @@ document.getElementById('pay-food').addEventListener('click', () => {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                document.getElementById('order-success').innerHTML = 'Order placed successfully!'
+                document.getElementById('order-message').innerHTML = 'Order placed successfully!'
             }
         }
     }
