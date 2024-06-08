@@ -21,3 +21,6 @@ $routes->get('/get-codes', 'Dashboard::getCodes');
 $routes->get('/search-food', 'Main::search_data');
 $routes->get('/privilege', 'EditPrivilege::index');
 $routes->get('/profile','EditProfile::index' );
+$routes->get('/profile', 'EditProfile::updateProfile');
+$routes->post('profile', 'EditProfile::processUpdateProfile');
+

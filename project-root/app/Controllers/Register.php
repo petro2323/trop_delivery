@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use App\Models\Users;
-
 use App\Controllers\BaseController;
 
 class Register extends BaseController
