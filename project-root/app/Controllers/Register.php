@@ -39,8 +39,9 @@ protected $cipher;
 
         if(!$this->validation->run($this->request->getPost(), 'rules')) {
             return view('register', [
+                session()->setFlashdata('error', 'Korisničko ime mora biti između 5 i 16 slova i mora sadržati broj. Loznika mora da bude duga makar 7 simbola i da ukjučuje brojeve.'),
                 'validation' => $this->validation
-            ]); //treba izmjenit da se pojavi poruka o gresci
+            ]);
         } else {
              
             $data = [

@@ -20,3 +20,4 @@ $routes->get('/erase-cookie/(:any)', 'Home::erasecookie/$1');
 $routes->get('/get-codes', 'Dashboard::getCodes');
 $routes->get('/search-food', 'Main::search_data');
 $routes->get('/privilege', 'EditPrivilege::index');
+$routes->get('/profile','EditProfile::index' );

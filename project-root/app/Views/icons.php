@@ -62,7 +62,7 @@
                     <?php if (session()->get('user_type_id') == 1): ?>
                         <a class="dropdown-item" href="<?= base_url('privilege') ?>">Privileges</a>
                     <?php endif; ?>
-                    <a class="dropdown-item" href="<?= base_url('/') ?>">Edit Profile</a>
+                    <a class="dropdown-item" href="<?= base_url('profile') ?>">Edit Profile</a>
                     <a class="dropdown-item" href="<?= base_url('logout') ?>" id="logoutBtn">Logout</a>
                 </div>
             </li>
