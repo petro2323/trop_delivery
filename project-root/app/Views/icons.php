@@ -45,9 +45,10 @@
             <hr class="divider">
             <p>Konačna cijena: <span id="final-price">0 €</span></p>
         </div>
-        <button class="checkout">
+        <button class="checkout" id="pay-food">
             Naruči
         </button>
+        <span id="order-success"></span>
         
     </div>
     </div>
@@ -70,4 +71,4 @@
     </div>
 </ul>
 <script type="module" src="<?= base_url('js/address.js') ?>"></script>
-<script src="<?= base_url('js/cart.js') ?>"></script>
+<script type="module" src="<?= base_url('js/cart.js') ?>"></script>

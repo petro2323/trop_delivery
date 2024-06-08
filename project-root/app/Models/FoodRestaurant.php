@@ -63,4 +63,10 @@ class FoodRestaurant extends Model
 
         return $this->db->query($sql, ["%$food%"])->getResultArray();
     }
+
+    public function getFoodId($image_title) {
+        $sql = 'SELECT id FROM food_restaurant WHERE food_image = ?';
+        
+        return $this->db->query($sql, [$image_title])->getRowArray();
+    }
 }

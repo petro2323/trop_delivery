@@ -1,3 +1,5 @@
+import { getCookie } from './cookie.js' 
+
 (() => { 
 
 let cart = loadCart()
@@ -191,6 +193,39 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+})
+
+document.getElementById('pay-food').addEventListener('click', () => {
+    let address = getCookie('deliveryAddress')
+    let images = []
+
+    let food = document.querySelectorAll('.order-card')
+
+    food.forEach(item => {
+        let img = item.querySelector('img')
+        let urlSource = img.src
+        let request = urlSource.substring(urlSource.lastIndexOf('/') + 1)
+        images.push(request)
+    })
+
+    let data = {
+        address: address,
+        images: images
+    }
+
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "/checkout", true)
+
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                document.getElementById('order-success').innerHTML = 'Order placed successfully!'
+            }
+        }
+    }
+
+    xhr.send(JSON.stringify(data))
 })
 
 })()

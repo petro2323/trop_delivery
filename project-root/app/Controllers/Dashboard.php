@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\FoodRestaurant;
+use App\Models\UserFood;
 
 class Dashboard extends Controller
 {
@@ -61,5 +62,28 @@ class Dashboard extends Controller
         curl_close($ch);
         
         return $response;
+    }
+
+    public function checkout()
+    {
+        $session = \Config\Services::session();
+        $food_restaurant = new FoodRestaurant();
+        $userFood = new UserFood();
+        $json = $this->request->getJSON();
+
+        if ($json) {
+            $address = $json->address;
+            $images = $json->images;
+
+            foreach($images as $image) {
+                $food = $food_restaurant->getFoodId($image);
+                $data = [
+                    'user_id' => $session->get('user_id'),
+                    'food_id' => $food['id'],
+                    'delivery_address' => $address
+                ];
+                $userFood->insert($data);
+            }
+        }
     }
 }
