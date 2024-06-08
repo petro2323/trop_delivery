@@ -28,8 +28,11 @@
             <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="bi bi-github"></i></a>
         </section>
         <!-- Section: Social media -->
-        <span class="footer-contact">Phone: <i class="bi bi-telephone-fill"><a href="tel:0038269555333"> +382 555 333</a></i></span>
-        <span class="footer-contact">Phone: <i class="bi bi-envelope-at-fill"><a href="mailto:tropdelivery@gmail.com"> tropdelivery@gmail.com</a></i>
+         <div class="social">
+            <span class="footer-contact">Phone: <i class="bi bi-telephone-fill"><a href="tel:0038269555333"> +382 555 333</a></i></span>
+            <span class="footer-contact">Phone: <i class="bi bi-envelope-at-fill"><a href="mailto:tropdelivery@gmail.com"> tropdelivery@gmail.com</a></i>
+         </div>
+
     </div>
     <!-- Grid container -->
 
