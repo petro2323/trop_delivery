@@ -34,7 +34,8 @@ class Home extends BaseController
     {
         $data = [
             'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password')
+            'password' => $this->request->getPost('password'),
+            'user_type_id' => $this->request->getPost('user_type_id')
         ];
 
         $user = $this->usersModel->where('username', openssl_encrypt($data['username'], $this->cipher, $this->key, 0, $this->iv))->first();
@@ -44,6 +45,7 @@ class Home extends BaseController
             $session = \Config\Services::session();
             $session->set('username', $user['username']);
             $session->set('user_id', $user['id']);
+            $session->set('user_type_id', $user['user_type_id']);
             
             return redirect()->to(base_url('/'));
         } else {
