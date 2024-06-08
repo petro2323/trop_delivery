@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="<?=base_url('css/global.css') ?>">
     <link rel="stylesheet" href="<?=base_url('css/register.css') ?>">
     <link rel="icon" href="<?=base_url()?>/photos/tropicon.png" type="image/gif">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <title>Register</title>
 </head>
 <body class="align">
@@ -61,9 +66,17 @@
 
     </form>
 
-    <p class="text--center">Already a member? <a href="<?=base_url('login');?>">Sign in now</a> <svg class="icon">
-            <use xlink:href="#icon-arrow-right"></use>
-        </svg></p>
+    <p class="text--center">Already a member? <a href="<?=base_url('login');?>">Sign in now</a> 
+            <svg class="icon">
+                <use xlink:href="#icon-arrow-right"></use>
+            </svg>
+    </p>
+
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
 
 </div>
 

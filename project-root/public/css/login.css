@@ -67,3 +67,14 @@
     color: #D05353;
     font-weight: bolder;
 }
+
+.text--center{
+    color: #F1E8B8;
+    margin: 1rem 1rem;
+}
+
+.login-title{
+    color: #F1E8B8 !important;
+    font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
+    font-weight: 700;
+}

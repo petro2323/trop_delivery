@@ -61,3 +61,8 @@
 .register input[type="submit"]:hover {
     background-color: var(--loginSubmitHoverBackgroundColor);
 }
+
+.text--center{
+    color: #F1E8B8;
+    margin: 1rem 1rem;
+}

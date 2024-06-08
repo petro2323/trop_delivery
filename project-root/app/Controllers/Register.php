@@ -53,8 +53,10 @@ protected $cipher;
             ];
 
             if($this->usersModel->where('username', $data['username'])->countAllResults() > 0) {
+                session()->setFlashdata('error', 'Korisničko ime već postoji. Izaberite drugo ime.');
                 return redirect()->to(base_url('register')); //treba izmjenit da se pojavi poruka o gresci   
             } else if($this->usersModel->where('email', $data['email'])->countAllResults() > 0) {
+                session()->setFlashdata('error', 'E-mail adresa je zauzeta. Izaberite drugu adresu.');
                 return redirect()->to(base_url('register')); //treba izmjenit da se pojavi poruka o gresci
             } else {
                 $this->usersModel->insert($data);

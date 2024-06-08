@@ -47,6 +47,7 @@ class Home extends BaseController
             
             return redirect()->to(base_url('/'));
         } else {
+            session()->setFlashdata('error', 'Netačno korisničko ime ili lozinka. Pokušajte ponovo.');
             return redirect()->to(base_url('login'));
         }
     }
