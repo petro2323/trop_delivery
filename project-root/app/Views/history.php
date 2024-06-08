@@ -42,7 +42,6 @@
     </div>
 
     <div class="history-landing">
-        <h1 id="history-title">Pregled istorije</h1>
 
         <div class="history-table-wrapper">
             <table class="table" id="table">
