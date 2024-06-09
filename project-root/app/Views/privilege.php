@@ -114,7 +114,7 @@
 
                 let request = {
                     url: '<?= base_url('update-privilege') ?>',
-                    method: 'POST',
+                    method: 'PATCH',
                     data: JSON.stringify(data),
                     success: (result, status, xhr) => {
                         $("#server-message").html('Changes have been saved.')

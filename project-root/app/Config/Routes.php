@@ -22,4 +22,4 @@ $routes->get('/search-food', 'Main::search_data');
 $routes->post('/checkout', 'Dashboard::checkout');
 $routes->get('/privileges', 'Admin::index');
 $routes->get('/settings', 'UserProfile::index');
-$routes->post('/update-privilege', 'Admin::update_privilege');
+$routes->patch('/update-privilege', 'Admin::update_privilege');

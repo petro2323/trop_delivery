@@ -49,4 +49,11 @@ class Users extends Model
     public function update_user_privilege($user_id, $user_type) {
         return $this->db->table('users')->where('id', $user_id)->update(['user_type_id' => $user_type]);
     }
+
+    public function getUserData($user_id) {
+        $sql = 'SELECT u.first_name, u.last_name, u.email, u.username, u.password, p.user_number FROM users u
+        LEFT JOIN phone_number p ON p.id = u.phone_number_id WHERE u.id = ?';
+
+        return $this->db->query($sql, [$user_id])->getResultArray();
+    }
 }

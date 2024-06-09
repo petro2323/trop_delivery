@@ -26,41 +26,48 @@
     <?= session()->getFlashdata('error') ? '<p>' . session()->getFlashdata('error') . '</p>' : '' ?>
     <?= session()->getFlashdata('success') ? '<p>' . session()->getFlashdata('success') . '</p>' : '' ?>
 
-    <form class="form register">
+    <form action="<?php echo base_url('update-profile') ?>" method="POST" class="form register">
+    <?php if(isset($user_data)): ?>
+        
+        <?php 
+        $key = \Config\Encryption::$key; 
+        $iv = \Config\Encryption::$iv;  
+        $cipher = \Config\Encryption::$cipher; 
+        ?>
 
         <div class="form__field">
             <label for="profile__fName"><svg class="icon">
                     <use xlink:href="#icon-user"></use>
                 </svg><span class="hidden">First Name</span></label>
-            <input autocomplete="username" id="profile__fName" type="text" name="fName" class="form__input" placeholder="First Name">
+            <input autocomplete="username" id="profile__fName" value="<?= openssl_decrypt($user_data[0]['first_name'], $cipher, $key, 0, $iv) ?>" type="text" name="fName" class="form__input" placeholder="First Name">
         </div>
 
         <div class="form__field">
             <label for="profile__lName"><svg class="icon">
                     <use xlink:href="#icon-user"></use>
                 </svg><span class="hidden">Last Name</span></label>
-            <input autocomplete="username" id="profile__lName" type="text" name="lName" class="form__input" placeholder="Last Name">
+            <input autocomplete="username" id="profile__lName" value="<?= openssl_decrypt($user_data[0]['last_name'], $cipher, $key, 0, $iv) ?>" type="text" name="lName" class="form__input" placeholder="Last Name">
         </div>
 
         <div class="form__field">
             <label for="profile__email"><svg class="icon">
                     <use xlink:href="#icon-envelope"></use>
                 </svg><span class="hidden">Email</span></label>
-            <input autocomplete="username" id="profile__email" type="email" name="email" class="form__input" placeholder="Email">
+            <input autocomplete="username" id="profile__email" value="<?= openssl_decrypt($user_data[0]['email'], $cipher, $key, 0, $iv) ?>" type="email" name="email" class="form__input" placeholder="Email">
         </div>
 
         <div class="form__field">
             <label for="profile__phone"><svg class="icon">
                     <use xlink:href="#icon-phone"></use>
                 </svg><span class="hidden">Phone</span></label>
-            <input autocomplete="username" id="profile__phone" type="tel" name="phone" class="form__input" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+            <input autocomplete="username" id="profile__phone" value="<?= openssl_decrypt($user_data[0]['user_number'], $cipher, $key, 0, $iv) ?>" type="tel" name="phone" class="form__input" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
         </div>
 
         <div class="form__field">
             <label for="profile__username"><svg class="icon">
                     <use xlink:href="#icon-user"></use>
                 </svg><span class="hidden">Username</span></label>
-            <input autocomplete="username" id="profile__username" type="text" name="username" class="form__input" placeholder="Username">
+            <input autocomplete="username" id="profile__username" value="<?= openssl_decrypt($user_data[0]['username'], $cipher, $key, 0, $iv) ?>" type="text" name="username" class="form__input" placeholder="Username">
         </div>
 
         <div class="form__field">
@@ -76,6 +83,7 @@
                 </svg><span class="hidden">New Password</span></label>
             <input id="new_profile__password" type="password" name="new_password" class="form__input" placeholder="New Password">
         </div>
+        <?php endif;?>
 
         <div class="form__field">
             <input type="submit" value="Update changes" name="submit">
@@ -88,7 +96,9 @@
             <?= session()->getFlashdata('error') ?>
         </div>
     <?php endif; ?>
-
+    <p class="text--center"><a href="<?=base_url('/');?>">Back To Main</a> <svg class="icon">
+            <use xlink:href="#icon-arrow-right"></use>
+        </svg></p>
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icons">
