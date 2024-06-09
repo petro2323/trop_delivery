@@ -31,7 +31,7 @@
     <div class="history-landing">
 
         <div class="history-table-wrapper">
-            <form action="">
+            <form>
                 <table class="table" id="table">
                     <thead>
                         <tr>
@@ -60,7 +60,7 @@
                             <td><?= openssl_decrypt($user['email'], $cipher, $key, 0, $iv) ?></td>
                             <td><?= openssl_decrypt($user['username'], $cipher, $key, 0, $iv) ?></td>
                             <td>
-                                <select name="user-type" id="type">
+                                <select name="user-type" id='<?= $user['id'] ?>' class="select-box">
                                     <option value='2' <?= ($user['user_type_id'] == 2) ? "selected" : "" ?>>Employee</option>
                                     <option value='3' <?= ($user['user_type_id'] == 3) ? "selected" : "" ?>>Client</option>
                                 </select>
@@ -72,16 +72,63 @@
                     </tbody>
                 </table>
                 <div class="centered-button">
-                    <input type="submit" value="Sačuvaj" class="submit-button">
+                    <input type="submit" value="Save" class="submit-button" id="save-btn">
                 </div>
             </form>
-
         </div>
     </div>
     </div>
-
+    <div id="message-box">
+        <span id="server-message"></span>
+    </div>
 
     <?php include ("footer.php") ?>
 </body>
 
 </html>
+<script type="text/javascript">
+
+    let changes = []
+
+    $(document).ready(() => {
+        $(".select-box").change((e) => {
+            e.preventDefault()
+
+            let input = e.target
+
+            if(!changes.includes(input)) {
+                changes.push(input)
+            }
+        })
+
+        $("#save-btn").on("click", (e) => {
+            e.preventDefault()
+
+            for (let i = 0; i < changes.length; i++) {
+                let input = changes[i]
+
+                let data = {
+                    userId: parseInt(input.getAttribute('id')),
+                    userType: parseInt(input.value)
+                }
+
+                let request = {
+                    url: '<?= base_url('update-privilege') ?>',
+                    method: 'POST',
+                    data: JSON.stringify(data),
+                    success: (result, status, xhr) => {
+                        $("#server-message").html('Changes have been saved.')
+                        $("#server-message").css('color', '#4da866')
+                        $("#message-box").css('text-align', 'center')
+                    },
+                    error: (xhr, status, error) => {
+                        $("#server-message").html(status)
+                    }
+                }
+                $.ajax(request)
+            }
+            changes = []
+        })
+    })
+
+</script>

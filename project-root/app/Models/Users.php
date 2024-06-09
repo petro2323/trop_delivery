@@ -45,4 +45,8 @@ class Users extends Model
 
         return $this->db->query($sql)->getResultArray();
     }
+
+    public function update_user_privilege($user_id, $user_type) {
+        return $this->db->table('users')->where('id', $user_id)->update(['user_type_id' => $user_type]);
+    }
 }

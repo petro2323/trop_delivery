@@ -19,4 +19,12 @@ class Admin extends BaseController
             return redirect()->to(base_url('/'));
         }
     }
+
+    public function update_privilege()
+    {
+        $query = $this->request->getJSON(true);
+        $users = new Users();
+
+        return $users->update_user_privilege($query['userId'], $query['userType']);
+    }
 }
