@@ -39,41 +39,6 @@ protected $phoneNumbersModel;
         $this->cipher = \Config\Encryption::$cipher;
     }
 
-
-    // public function register()
-    // {
-    //     $this->validation->setRuleGroup('rules');
-
-    //     if(!$this->validation->run($this->request->getPost(), 'rules')) {
-    //         return view('register', [
-    //             session()->setFlashdata('error', 'Korisničko ime mora biti između 5 i 16 slova i mora sadržati broj. Loznika mora da bude duga makar 7 simbola i da ukjučuje brojeve.'),
-    //             'validation' => $this->validation
-    //         ]);
-    //     } else {
-             
-    //         $data = [
-    //             'first_name' => openssl_encrypt($this->request->getPost('fName'), $this->cipher, $this->key, 0, $this->iv),
-    //             'last_name' => openssl_encrypt($this->request->getPost('lName'), $this->cipher, $this->key, 0, $this->iv),
-    //             'email' => openssl_encrypt($this->request->getPost('email'), $this->cipher, $this->key, 0, $this->iv),
-    //             'username' => openssl_encrypt($this->request->getPost('username'), $this->cipher, $this->key, 0, $this->iv),
-    //             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-    //             'user_type_id' => 3
-    //         ];
-
-    //         if($this->usersModel->where('username', $data['username'])->countAllResults() > 0) {
-    //             session()->setFlashdata('error', 'Korisničko ime već postoji. Izaberite drugo ime.');
-    //             return redirect()->to(base_url('register')); //treba izmjenit da se pojavi poruka o gresci   
-    //         } else if($this->usersModel->where('email', $data['email'])->countAllResults() > 0) {
-    //             session()->setFlashdata('error', 'E-mail adresa je zauzeta. Izaberite drugu adresu.');
-    //             return redirect()->to(base_url('register')); //treba izmjenit da se pojavi poruka o gresci
-    //         } else {
-    //             $this->usersModel->insert($data);
-    //             return redirect()->to(base_url('login'));
-    //         }
-    //     }
-    // }
-
-
     public function updateProfile()
     {
         $session = session();
@@ -123,18 +88,15 @@ protected $phoneNumbersModel;
         if (!$this->validate($rules)) {
             $validationErrors = $this->validation->listErrors();
             log_message('error', 'Validation errors: ' . $validationErrors); // Debug za validaciju
-            return redirect()->back()->withInput()->with('error', $validationErrors);
-            // return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
+            return redirect()->back()->to(base_url('profile'))->with('error', $validationErrors);
         }
 
-        // Uzima vrijednosti korisnika i telefona
+        // Uzima vrijednosti korisnika
         $user = $this->usersModel->find($userId);
-        $phoneNumber = $this->phoneNumbersModel->find($user['phone_number_id']);
 
         //Ovo sam stavio za log provjeru
 
         log_message('debug', 'User data before update: ' . print_r($user, true));
-        log_message('debug', 'Phone number data before update: ' . print_r($phoneNumber, true));
 
         // Verifikuje stari password
         if (!password_verify($this->request->getPost('old_password'), $user['password'])) {
@@ -148,25 +110,20 @@ protected $phoneNumbersModel;
             'last_name' => openssl_encrypt($this->request->getPost('lName'), $this->cipher, $this->key, 0, $this->iv),
             'email' => openssl_encrypt($this->request->getPost('email'), $this->cipher, $this->key, 0, $this->iv),
             'username' => openssl_encrypt($this->request->getPost('username'), $this->cipher, $this->key, 0, $this->iv),
+            'phone_number' => openssl_encrypt($this->request->getPost('phone'), $this->cipher, $this->key, 0, $this->iv),
         ];
 
         if ($this->request->getPost('new_password')) {
             $userData['password'] = password_hash($this->request->getPost('new_password'), PASSWORD_DEFAULT);
         }
 
-        $phoneNumberData = [
-            'phone_number' => openssl_encrypt($this->request->getPost('phone'), $this->cipher, $this->key, 0, $this->iv)
-        ];
-
         // I ovdje stavljam debug logove
 
-        log_message('debug', 'User data to update: ' . print_r($userData, true)); // Log user data to update
-        log_message('debug', 'Phone number data to update: ' . print_r($phoneNumberData, true)); // Log phone number data to update
+        log_message('debug', 'User data to update: ' . print_r($userData, true));
 
 
         // Da li uopste ima promjena?
         $hasUserDataChanges = array_diff_assoc($userData, array_intersect_key($user, $userData));
-        $hasPhoneNumberChanges = array_diff_assoc($phoneNumberData, array_intersect_key($phoneNumber, $phoneNumberData));
 
         if (empty($hasUserDataChanges) && empty($hasPhoneNumberChanges)) {
             log_message('debug', 'Nema promjene u user data.');
@@ -174,32 +131,15 @@ protected $phoneNumbersModel;
             return redirect()->back()->withInput();
         }
 
-        // Otvara konekciju sa bazom
-        $db = \Config\Database::connect();
-        $db->transStart();
-
-        try {
-            // Update podataka korisnika
-            $this->usersModel->update($userId, $userData);
-
-            // Update telefona
-            $this->phoneNumbersModel->update($user['phone_number_id'], $phoneNumberData);
-
-            $db->transComplete();
-
-            if ($db->transStatus() === FALSE) {
-                throw new \Exception('Transaction failed.');
+        // Ako ima, update
+        if (!empty($hasUserDataChanges)) {
+            if ($this->usersModel->update($userId, $userData)) {
+                $session->setFlashdata('success', 'Promjene uspješno sačuvane!');
+            } else {
+                $session->setFlashdata('error', 'Neuspješno ažuriranje. Pokušajte ponovo.');
             }
-
-            $session->setFlashdata('success', 'Sva polja uspješno sačuvana!');
-            return redirect()->to(base_url('profile'));
-        } catch (\Exception $e) {
-            $db->transRollback();
-
-            log_message('error', $e->getMessage());
-
-            $session->setFlashdata('error', 'Ažururanje nije uspjelo. Pokušajte ponovo.');
-            return redirect()->to(base_url('profile'));
         }
+
+        return redirect()->to(base_url('profile'));
     }
 }
