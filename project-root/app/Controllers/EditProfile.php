@@ -16,7 +16,6 @@ protected $key;
 protected $iv;
 protected $cipher;
 protected $session;
-protected $phoneNumbersModel;
 
 
     public function index()
@@ -32,7 +31,6 @@ protected $phoneNumbersModel;
     public function __construct()
     {
         $this->usersModel = new Users();
-        $this->phoneNumbersModel = new PhoneNumber();
         $this->validation = \Config\Services::validation();
         $this->key = \Config\Encryption::$key;
         $this->iv = \Config\Encryption::$iv;
@@ -49,13 +47,11 @@ protected $phoneNumbersModel;
         }
 
         $user = $this->usersModel->find($userId);
-        $phoneNumber = $this->phoneNumbersModel->find($user['phone_number_id']);
 
         
 
         return view('profile', [
             'user' => $user,
-            'phone_number' => $phoneNumber,
         ]);
     }
 
