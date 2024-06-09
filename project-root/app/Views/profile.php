@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <title>Edit Profile</title>
+    <title>Settings</title>
 </head>
 <body class="align">
 
@@ -23,11 +23,7 @@
 
 <div class="grid">
 
-    <?= session()->getFlashdata('error') ? '<p>' . session()->getFlashdata('error') . '</p>' : '' ?>
-    <?= session()->getFlashdata('success') ? '<p>' . session()->getFlashdata('success') . '</p>' : '' ?>
-
-    <form action="<?php echo base_url('update-profile') ?>" method="POST" class="form register">
-    <?php if(isset($user_data)): ?>
+    <form class="form register">
         
         <?php 
         $key = \Config\Encryption::$key; 
@@ -83,19 +79,13 @@
                 </svg><span class="hidden">New Password</span></label>
             <input id="new_profile__password" type="password" name="new_password" class="form__input" placeholder="New Password">
         </div>
-        <?php endif;?>
 
         <div class="form__field">
-            <input type="submit" value="Update changes" name="submit">
+            <input type="submit" value="Update changes" name="submit" id="update-btn">
         </div>
 
     </form>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger" role="alert">
-            <?= session()->getFlashdata('error') ?>
-        </div>
-    <?php endif; ?>
     <p class="text--center"><a href="<?=base_url('/');?>">Back To Main</a> <svg class="icon">
             <use xlink:href="#icon-arrow-right"></use>
         </svg></p>
