@@ -44,48 +44,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php if (isset($users)): ?>
+                        <?php 
+                        $key = \Config\Encryption::$key;
+                        $iv = \Config\Encryption::$iv;
+                        $cipher = \Config\Encryption::$cipher;
+                        $session = \Config\Services::session();
+                        ?>
+                        <?php foreach ($users as $user): ?>
+                            <?php if ($user['username'] != $session->get('username')): ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Nebojša</td>
-                            <td>Nedić</td>
-                            <td>nedic@gmail.com</td>
-                            <td>nnedic98</td>
+                            <th scope="row"><?= $user['id'] ?></th>
+                            <td><?= openssl_decrypt($user['first_name'], $cipher, $key, 0, $iv) ?></td>
+                            <td><?= openssl_decrypt($user['last_name'], $cipher, $key, 0, $iv) ?></td>
+                            <td><?= openssl_decrypt($user['email'], $cipher, $key, 0, $iv) ?></td>
+                            <td><?= openssl_decrypt($user['username'], $cipher, $key, 0, $iv) ?></td>
                             <td>
                                 <select name="user-type" id="type">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Employee</option>
-                                    <option value="1">Client</option>
+                                    <option value='2' <?= ($user['user_type_id'] == 2) ? "selected" : "" ?>>Employee</option>
+                                    <option value='3' <?= ($user['user_type_id'] == 3) ? "selected" : "" ?>>Client</option>
                                 </select>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Haris</td>
-                            <td>Adrović</td>
-                            <td>hakaizdzungle@gmail.com</td>
-                            <td>hakaizdzungle</td>
-                            <td>
-                                <select name="user-type" id="type">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Employee</option>
-                                    <option value="1">Client</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Miloš</td>
-                            <td>Sekulić</td>
-                            <td>selesekac@gmail.com</td>
-                            <td>selesekac87</td>
-                            <td>
-                                <select name="user-type" id="type">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Employee</option>
-                                    <option value="1">Client</option>
-                                </select>
-                            </td>
-                        </tr>
+                            <?php endif;?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                     </tbody>
                 </table>
                 <div class="centered-button">

@@ -39,4 +39,10 @@ class Users extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllUsers() {
+        $sql = 'SELECT id, first_name, last_name, email, username, user_type_id FROM users';
+
+        return $this->db->query($sql)->getResultArray();
+    }
 }
