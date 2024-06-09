@@ -32,10 +32,10 @@
         <div class="history-banner">
             <img src="<?= base_url("food/vegan-cevap-gligor-de-ramen.jpg") ?>" alt="burger">
             <div class="banner-promo">
-                <h1><span>NOVO!!!</span>
+                <h1><span>UPRAVLJAJ</span>
                     <br>
-                    Kupi kafu <br>
-                    Dobij šolju! <br>
+                    Novi sistem! <br>
+                    Iskoristi moć sada! <br>
                 </h1>
             </div>
         </div>

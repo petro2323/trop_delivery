@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Users;
 use App\Models\PhoneNumber;
+use CodeIgniter\CLI\Console;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class EditProfile extends BaseController
@@ -14,7 +15,7 @@ protected $validation;
 protected $key;
 protected $iv;
 protected $cipher;
-
+protected $session;
 protected $phoneNumbersModel;
 
 
@@ -33,6 +34,9 @@ protected $phoneNumbersModel;
         $this->usersModel = new Users();
         $this->phoneNumbersModel = new PhoneNumber();
         $this->validation = \Config\Services::validation();
+        $this->key = \Config\Encryption::$key;
+        $this->iv = \Config\Encryption::$iv;
+        $this->cipher = \Config\Encryption::$cipher;
     }
 
 
@@ -82,6 +86,8 @@ protected $phoneNumbersModel;
         $user = $this->usersModel->find($userId);
         $phoneNumber = $this->phoneNumbersModel->find($user['phone_number_id']);
 
+        
+
         return view('profile', [
             'user' => $user,
             'phone_number' => $phoneNumber,
@@ -115,15 +121,24 @@ protected $phoneNumbersModel;
         ];
 
         if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
+            $validationErrors = $this->validation->listErrors();
+            log_message('error', 'Validation errors: ' . $validationErrors); // Debug za validaciju
+            return redirect()->back()->withInput()->with('error', $validationErrors);
+            // return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
         }
 
         // Uzima vrijednosti korisnika i telefona
         $user = $this->usersModel->find($userId);
         $phoneNumber = $this->phoneNumbersModel->find($user['phone_number_id']);
 
+        //Ovo sam stavio za log provjeru
+
+        log_message('debug', 'User data before update: ' . print_r($user, true));
+        log_message('debug', 'Phone number data before update: ' . print_r($phoneNumber, true));
+
         // Verifikuje stari password
         if (!password_verify($this->request->getPost('old_password'), $user['password'])) {
+            log_message('error', 'Old password is incorrect.');
             return redirect()->back()->withInput()->with('error', 'Stara lozinka je netačna.');
         }
 
@@ -142,6 +157,22 @@ protected $phoneNumbersModel;
         $phoneNumberData = [
             'phone_number' => openssl_encrypt($this->request->getPost('phone'), $this->cipher, $this->key, 0, $this->iv)
         ];
+
+        // I ovdje stavljam debug logove
+
+        log_message('debug', 'User data to update: ' . print_r($userData, true)); // Log user data to update
+        log_message('debug', 'Phone number data to update: ' . print_r($phoneNumberData, true)); // Log phone number data to update
+
+
+        // Da li uopste ima promjena?
+        $hasUserDataChanges = array_diff_assoc($userData, array_intersect_key($user, $userData));
+        $hasPhoneNumberChanges = array_diff_assoc($phoneNumberData, array_intersect_key($phoneNumber, $phoneNumberData));
+
+        if (empty($hasUserDataChanges) && empty($hasPhoneNumberChanges)) {
+            log_message('debug', 'Nema promjene u user data.');
+            $session->setFlashdata('info', 'Nema promjena.');
+            return redirect()->back()->withInput();
+        }
 
         // Otvara konekciju sa bazom
         $db = \Config\Database::connect();

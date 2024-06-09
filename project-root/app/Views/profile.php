@@ -22,10 +22,7 @@
 </div>
 
 <div class="grid">
-
-    <?= session()->getFlashdata('error') ? '<p>' . session()->getFlashdata('error') . '</p>' : '' ?>
-    <?= session()->getFlashdata('success') ? '<p>' . session()->getFlashdata('success') . '</p>' : '' ?>
-
+    
     <form action="<?php echo base_url('profile') ?>" method="POST" class="form register">
 
         <div class="form__field">
@@ -78,6 +75,13 @@
         </div>
 
         <div class="form__field">
+            <label for="confirm_profile__password"><svg class="icon">
+                    <use xlink:href="#icon-lock"></use>
+                </svg><span class="hidden">Confirm New Password</span></label>
+            <input id="confirm_profile__password" type="password" name="confirm_password" class="form__input" placeholder="Confirm New Password">
+        </div>
+
+        <div class="form__field">
             <input type="submit" value="Update changes" name="submit">
         </div>
 
@@ -86,6 +90,18 @@
     <?php if (session()->getFlashdata('error')): ?>
         <div class="alert alert-danger" role="alert">
             <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('info')): ?>
+        <div class="alert alert-info" role="alert">
+            <?= session()->getFlashdata('info') ?>
         </div>
     <?php endif; ?>
 

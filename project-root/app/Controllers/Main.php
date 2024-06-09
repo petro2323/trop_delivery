@@ -32,8 +32,8 @@ class Main extends BaseController
                 echo "<div class=\"custom-card\" id=\"search-result-card\">";
                 echo "<img src=\"" . base_url('food/' . $row['food_image']) . "\" alt=\"" . $row['food_title'] . "\">";
                 echo "<div class=\"container\" id=\"container-big\">";
-                echo "<h4>" . $row['food_title'] . "</h4>";
-                echo "<p>" . $row['restaurant_title'] . "</p>";
+                echo "<h4>" . $row['restaurant_title'] . "</h4>";
+                echo "<p>" . $row['food_title'] . "</p>";
                 echo "<p>" . $row['price'] . " €</p>";
                 echo "</div>";
                 echo "</div>";
