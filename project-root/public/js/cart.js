@@ -247,9 +247,6 @@ document.getElementById('pay-food').addEventListener('click', () => {
             if (xhr.status === 200) {
                 document.getElementById('order-message').innerHTML = 'Order placed successfully!'
             }
-            if (xhr.status === 500) {
-                console.log(xhr.responseText)
-            }
         }
     }
 

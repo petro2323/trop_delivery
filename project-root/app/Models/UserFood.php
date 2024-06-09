@@ -12,7 +12,7 @@ class UserFood extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'food_id', 'delivery_address', 'quantity', 'food_price', 'pdv_price', 'delivery_price', 'final_price', 'order_date'];
+    protected $allowedFields    = ['user_id', 'food_id', 'delivery_address', 'quantity', 'food_price', 'pdv_price', 'delivery_price', 'final_price', 'order_date', 'restaurant_id'];
 
     protected bool $allowEmptyInserts = false;
 

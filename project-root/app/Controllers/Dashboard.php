@@ -77,6 +77,7 @@ class Dashboard extends Controller
 
             foreach($items as $title => $item) {
                 $food = $food_restaurant->getFoodId($item->image_title);
+                $restaurant = $food_restaurant->getRestaurantId($item->image_title);
                 $data = [
                     'user_id' => $session->get('user_id'),
                     'food_id' => $food['food_id'],
@@ -86,7 +87,8 @@ class Dashboard extends Controller
                     'pdv_price' => $item->pdv_price,
                     'delivery_price' => $item->delivery_price,
                     'final_price' => $item->final_price,
-                    'order_date' => date("Y-m-d H:i:s")
+                    'order_date' => date("Y-m-d H:i:s"),
+                    'restaurant_id' => $restaurant['restaurant_id']
                 ];
                 $userFood->insert($data);
             }
