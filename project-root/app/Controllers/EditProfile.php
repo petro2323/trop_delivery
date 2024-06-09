@@ -4,9 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Users;
-use App\Models\PhoneNumber;
-use CodeIgniter\CLI\Console;
-use CodeIgniter\HTTP\ResponseInterface;
 
 class EditProfile extends BaseController
 {
