@@ -26,7 +26,7 @@
     <?= session()->getFlashdata('error') ? '<p>' . session()->getFlashdata('error') . '</p>' : '' ?>
     <?= session()->getFlashdata('success') ? '<p>' . session()->getFlashdata('success') . '</p>' : '' ?>
 
-    <form action="<?php echo base_url('profile') ?>" method="POST" class="form register">
+    <form class="form register">
 
         <div class="form__field">
             <label for="profile__fName"><svg class="icon">

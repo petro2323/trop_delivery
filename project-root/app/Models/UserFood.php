@@ -39,4 +39,14 @@ class UserFood extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getUserHistoryInfo($user_id) {
+        $sql = 'SELECT uf.id, uf.user_id, f.food_title, uf.delivery_address, uf.quantity, uf.food_price, uf.pdv_price, uf.delivery_price,
+        uf.final_price, uf.order_date, r.restaurant_title FROM user_food uf
+        INNER JOIN food f ON f.id = uf.food_id
+        INNER JOIN restaurant r ON r.id = uf.restaurant_id WHERE uf.user_id = ?';
+
+        return $this->db->query($sql, [$user_id])->getResultArray();
+    }
+
 }

@@ -66,7 +66,7 @@
                     <?php if (session()->get('user_type_id') == 1): ?>
                         <a class="dropdown-item" href="<?= base_url('privileges') ?>">Privileges</a>
                     <?php endif; ?>
-                    <a class="dropdown-item" href="#">Edit Profile</a>
+                    <a class="dropdown-item" href="<?= base_url('settings') ?>">Settings</a>
                     <a class="dropdown-item" href="<?= base_url('logout') ?>" id="logoutBtn">Logout</a>
                 </div>
             </li>

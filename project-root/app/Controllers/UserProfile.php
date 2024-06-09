@@ -7,8 +7,15 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class UserProfile extends BaseController
 {
+    
     public function index()
     {
-        return view('profile');
+        $session = \Config\Services::session();
+        if(!$session->has('username')) {
+            return redirect()->to(base_url('/'));
+        } else {
+            return view('profile');
+        }
     }
+
 }

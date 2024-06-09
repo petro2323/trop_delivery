@@ -21,6 +21,7 @@
 .register input[type="text"],
 .register input[type="password"],
 .register input[type="email"],
+.register input[type="tel"],
 .register input[type="submit"] {
     border-radius: var(--loginBorderRadus);
     padding: 1rem;
@@ -35,7 +36,8 @@
 
 .register input[type="password"],
 .register input[type="email"],
-.register input[type="text"] {
+.register input[type="text"],
+.register input[type="tel"] {
     background-color: var(--loginInputBackgroundColor);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -46,7 +48,9 @@
 .register input[type="email"]:focus,
 .register input[type="email"]:hover,
 .register input[type="text"]:focus,
-.register input[type="text"]:hover {
+.register input[type="text"]:hover,
+.register input[type="tel"]:focus,
+.register input[type="tel"]:hover {
     background-color: var(--loginInputHoverBackgroundColor);
 }
 
