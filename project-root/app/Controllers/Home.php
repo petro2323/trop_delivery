@@ -44,6 +44,7 @@ class Home extends BaseController
             $session = \Config\Services::session();
             $session->set('username', $user['username']);
             $session->set('user_id', $user['id']);
+            $session->set('user_type_id', $user['user_type_id']);
             
             return redirect()->to(base_url('/'));
         } else {

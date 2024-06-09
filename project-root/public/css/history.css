@@ -1,3 +1,22 @@
 #table{
     background-color: #d47979 !important;
 }
+
+.centered-button{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button{
+    width: 30rem;
+    height: fit;
+    text-align: center;
+    background-color: #D05353;
+    color: #F1E8B8;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}

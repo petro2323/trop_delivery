@@ -63,6 +63,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="<?= base_url('dashboard') ?>">Dashboard</a>
                     <a class="dropdown-item" href="<?= base_url('history') ?>">History</a>
+                    <?php if (session()->get('user_type_id') == 1): ?>
+                        <a class="dropdown-item" href="<?= base_url('privileges') ?>">Privileges</a>
+                    <?php endif; ?>
                     <a class="dropdown-item" href="#">Edit Profile</a>
                     <a class="dropdown-item" href="<?= base_url('logout') ?>" id="logoutBtn">Logout</a>
                 </div>
