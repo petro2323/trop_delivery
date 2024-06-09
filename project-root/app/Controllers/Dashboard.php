@@ -79,7 +79,7 @@ class Dashboard extends Controller
                 $food = $food_restaurant->getFoodId($item->image_title);
                 $data = [
                     'user_id' => $session->get('user_id'),
-                    'food_id' => $food['id'],
+                    'food_id' => $food['food_id'],
                     'delivery_address' => $address,
                     'quantity' => $item->amount,
                     'food_price' => $item->price,
