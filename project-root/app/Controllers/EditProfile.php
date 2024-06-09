@@ -54,7 +54,8 @@ protected $session;
 
 //     function decrypt_value($value) jos nijesam ovo napravio malo sam se sjebo
 // {
-//     return openssl_decrypt($value, $this->cipher, $this->key, 0, $this->iv);
+//     $decrypted = openssl_decrypt($value, $this->cipher, $this->key, 0, $this->iv);
+//     return $decrypted;
 // }
 
     public function processUpdateProfile()
